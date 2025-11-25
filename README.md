@@ -1,2 +1,3 @@
-# Lonely-One-Golf-Game
-Golf game made using Unity2D
+# Silent Greens
+Silent Greens is a calm and minimalistic 2D casual golf-inspired game where players try to guide a small ball into the hole using simple drag-and-release controls. Instead of focusing on realistic golf rules or complex mechanics, the gameplay is built around easy aiming, smooth physics, and satisfying progress through small handcrafted levels. Players can take multiple shots to complete a level, allowing them to learn the terrain, adjust their aim, and improve at their own pace.
+Each level offers a peaceful environment with soft visuals, soothing colors, and simple obstacles that encourage thoughtful planning rather than fast reaction. Whether it’s day, night, or evening mode, the atmosphere stays calm and cozy, making it a relaxing game that players can enjoy casually in short sessions without pressure.
