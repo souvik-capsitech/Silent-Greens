@@ -1,65 +1,48 @@
 using UnityEngine;
-using System.Collections;
 
 public class CameraZoom : MonoBehaviour
 {
-    public float targetSize = 3f;        // how far to zoom in
-    public float originalSize = 5f;      // default size of your game camera
-    public float zoomSpeed = 2f;         // zoom smoothness
+    [Header("Camera Settings")]
+    public Camera cam;              // Main Camera
+    public float defaultSize = 5f;  // Normal camera size
+    public float zoomSize = 3f;     // Zoomed-in size
+    public float zoomSpeed = 2f;    // Smooth zoom speed
+    public float zoomDistance = 2f; // Distance to trigger zoom
 
-    Camera cam;
+    [HideInInspector]
+    public Transform ball;          // Assigned by LevelManager
+    [HideInInspector]
+    public Transform hole;          // Assigned by LevelManager
 
-    void Awake()
+    private float targetSize;
+
+    private void Start()
     {
-        cam = GetComponent<Camera>();
+        if (cam == null) cam = Camera.main;
+        targetSize = defaultSize;
+        cam.orthographicSize = defaultSize;
     }
 
-    public void TriggerZoom(Vector3 targetPos)
+    private void Update()
     {
-        StopAllCoroutines();
-        StartCoroutine(ZoomIn(targetPos));
+        if (cam == null || ball == null || hole == null) return;
+
+        // Check distance to hole
+        float dist = Vector2.Distance(ball.position, hole.position);
+
+        // If ball is near hole, zoom in
+        targetSize = (dist <= zoomDistance) ? zoomSize : defaultSize;
+
+        // Smoothly interpolate camera size
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetSize, Time.deltaTime * zoomSpeed);
     }
 
-    public void ResetZoom()
+    // Call this when loading a new level to reset zoom
+    public void ResetCamera()
     {
-        StopAllCoroutines();
-        StartCoroutine(ZoomOut());
-    }
-
-    IEnumerator ZoomIn(Vector3 targetPos)
-    {
-        float startSize = cam.orthographicSize;
-        Vector3 startPos = transform.position;
-        float t = 0;
-
-        while (t < 1)
-        {
-            t += Time.deltaTime * zoomSpeed;
-
-            cam.orthographicSize = Mathf.Lerp(startSize, targetSize, t);
-
-         
-            transform.position = new Vector3(
-                Mathf.Lerp(startPos.x, targetPos.x, t),
-                startPos.y,
-                startPos.z
-            );
-
-            yield return null;
-        }
-    }
-
-
-    IEnumerator ZoomOut()
-    {
-        float startSize = cam.orthographicSize;
-        float t = 0f;
-
-        while (t < 1f)
-        {
-            t += Time.deltaTime * zoomSpeed;
-            cam.orthographicSize = Mathf.Lerp(startSize, originalSize, t);
-            yield return null;
-        }
+        targetSize = defaultSize;
+        cam.orthographicSize = defaultSize;
+        ball = null;
+        hole = null;
     }
 }

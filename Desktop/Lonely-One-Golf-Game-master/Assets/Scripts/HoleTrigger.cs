@@ -15,12 +15,6 @@ public class Hole : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            if (zoomThisLevel)
-            {
-                CameraZoom cz = Camera.main.GetComponent<CameraZoom>();
-
-                cz.TriggerZoom(transform.position);
-            }
 
             StartCoroutine(SuckBall(other.gameObject));
         }
@@ -35,23 +29,50 @@ public class Hole : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Kinematic;
         ball.GetComponent<Collider2D>().enabled = false;
 
-        for (float t = 1; t > 0; t -= Time.deltaTime * 3)
+        Vector3 startPos = ball.transform.position;
+        Vector3 endPos = transform.position;
+
+        float t = 0f;
+        float duration = 0.4f;   
+
+       
+        TrailRenderer trail = ball.GetComponent<TrailRenderer>();
+        if (trail != null)
         {
-            ball.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
-            ball.transform.position = Vector3.Lerp(ball.transform.position, transform.position, 0.1f);
+            trail.minVertexDistance = 0.01f;
+            trail.emitting = true;
+        }
+
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            float lerp = t / duration;
+
+            ball.transform.position = Vector3.Lerp(startPos, endPos, lerp);
+
+           
+            float scale = Mathf.Lerp(1f, 0.3f, lerp);
+            ball.transform.localScale = new Vector3(0.2f, 0.2f, 0);
+
             yield return null;
+        }
+
+
+        if (trail != null)
+        {
+            trail.emitting = false;
+            trail.minVertexDistance = 0.1f;
         }
 
         ball.SetActive(false);
 
-        
+
         ScoreManager.instance.AddDirectShot();
 
         yield return new WaitForSeconds(0.1f);
         yield return StartCoroutine(CoinPop());
 
-        if (zoomThisLevel && camZoom != null)
-            camZoom.ResetZoom();
+      
         FindAnyObjectByType<LevelManager>().LoadNextLevel();
 
     }

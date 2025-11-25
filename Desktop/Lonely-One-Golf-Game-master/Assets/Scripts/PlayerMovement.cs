@@ -26,8 +26,11 @@ private bool firstHitDone = false;
     public Button cancelButton;
     public float cancelTriggerPercent = 0.15f;
 
+    WindManager windManager;
+
     void Start()
     {
+        windManager = FindFirstObjectByType<WindManager>();
         trail.emitting = true;
         firstHitDone = false;
         trail.Clear();
@@ -42,6 +45,11 @@ private bool firstHitDone = false;
 
     void Update()
     {
+        if (Camera.main == null)
+        {
+            enabled = false;
+            return;
+        }
         if (dragging)
         {
             Vector3 draggingPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -159,7 +167,7 @@ private bool firstHitDone = false;
 
         if (lifeManager.currentLives > 0)
         {
-            // Reset ball position to level spawn
+           
             LevelManager levelManager = FindFirstObjectByType<LevelManager>();
             levelManager.LoadLevel(levelManager.CurrentLevelIndex);
 
@@ -194,7 +202,13 @@ private bool firstHitDone = false;
         firstHitDone = false;
         trail.emitting = false;  
     }
-
+     void FixedUpdate()
+    {
+        if (windManager != null && rb.linearVelocity.magnitude > 0.05f)
+        {
+            rb.AddForce(windManager.GetWindForce()* Time.fixedDeltaTime, ForceMode2D.Force );
+        }
+    }
 
 
 }

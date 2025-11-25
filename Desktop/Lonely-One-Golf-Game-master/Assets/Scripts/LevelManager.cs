@@ -29,8 +29,29 @@ public class LevelManager : MonoBehaviour
         if (dayNight != null)
         {
             LevelSettings settings = currLevel.GetComponent<LevelSettings>();
+
             if (settings != null)
             {
+        CameraZoom camZoom = FindAnyObjectByType<CameraZoom>();
+
+        if (camZoom != null)
+        {
+                    camZoom.ResetCamera();
+
+                    
+                    if (settings != null && settings.enableZoom)
+                    {
+                    camZoom.ball = ball.transform;
+                    camZoom.hole = settings.holeTransform;         
+                    camZoom.zoomDistance = settings.zoomDistance;
+                    }
+            else
+            {
+                        camZoom.ball = null;
+                        camZoom.hole = null;
+                    }
+                  
+                }
          
                 switch (settings.levelTimeOfDay)
                 {
@@ -46,8 +67,9 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
+     
 
-   
+       
         Transform spawn = currLevel.transform.Find("SpawnPoint");
         if (spawn != null)
         {
@@ -84,4 +106,7 @@ public class LevelManager : MonoBehaviour
         LoadLevel(currIdx);
         Time.timeScale = 1f;
     }
+
+
+ 
 }

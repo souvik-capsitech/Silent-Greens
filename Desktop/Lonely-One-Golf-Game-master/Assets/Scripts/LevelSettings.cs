@@ -9,6 +9,12 @@ public class LevelSettings : MonoBehaviour
         Night
     }
 
+    public bool enableZoom = false;
+    public Transform holeTransform;
+    public float zoomDistance = 2f;
+    public float minCameraY = 0f;
+    public float maxCameraY = 10f;
+
     public TimeOfDay levelTimeOfDay = TimeOfDay.Day; 
 
     private DayNightManager dayNightManager;
