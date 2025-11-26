@@ -22,7 +22,7 @@ private bool firstHitDone = false;
 
     public GameObject restartPanel;
     public bool touchedGround = false;
-
+    
     public Button cancelButton;
     public float cancelTriggerPercent = 0.15f;
 
@@ -42,7 +42,7 @@ private bool firstHitDone = false;
             cancelButton.gameObject.SetActive(false);
         }
     }
-
+    
     void Update()
     {
         if (Camera.main == null)
@@ -67,8 +67,12 @@ private bool firstHitDone = false;
             {
                 cancelButton.gameObject.SetActive(true);
             }
+            else
+            {
+                cancelButton.gameObject.SetActive(false) ;
+            }
 
-            Vector2 fingerPos = Input.mousePosition;
+                Vector2 fingerPos = Input.mousePosition;
             if (RectTransformUtility.RectangleContainsScreenPoint(cancelButtonRect, fingerPos))
             {
                 CancelShot();

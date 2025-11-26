@@ -1,6 +1,7 @@
-using UnityEditor.Search;
+
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class BackButtonHandler : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,7 +31,7 @@ public class BackButtonHandler : MonoBehaviour
     public void OnConfirmExit()
     {
         Time.timeScale = 1f;
-        Application.Quit();
+        SceneManager.LoadScene("LevelSelect");
     }
 
     public void OnCancelExit()

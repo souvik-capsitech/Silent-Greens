@@ -8,7 +8,7 @@
 
         public void PlayGame()
         {
-            SceneManager.LoadScene("GamePlay");
+            SceneManager.LoadScene("LevelSelect");
         }
         public void RestartLevel()
         {
@@ -20,7 +20,11 @@
         {
             gameOverPanel.SetActive(true);
         }
-
+        
+    public void QuitLevel()
+    {
+        SceneManager.LoadScene("LevelSelect");
+    }
         public void QuitGame()
 
         {

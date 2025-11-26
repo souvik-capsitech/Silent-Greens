@@ -12,6 +12,13 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+    
+        currIdx = LevelLoader.levelToLoad;
+
+       
+        if (currIdx < 0 || currIdx >= levels.Length)
+            currIdx = 0;
+
         LoadLevel(currIdx);
     }
 
@@ -110,6 +117,10 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void OnLevelCompleted()
+    {
+        LevelProgress.UnlockNextLevel(currIdx +1);
+    }
 
- 
+
 }

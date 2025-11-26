@@ -2270,6 +2270,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d920f4f11ddda154baf1ea1af47222a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSettings
+  enableZoom: 1
+  holeTransform: {fileID: 3266036209312173675}
+  zoomDistance: 2
+  cameraMinY: -10
+  cameraMaxY: 10
   levelTimeOfDay: 2
 --- !u!1 &6886370418248882758
 GameObject:
