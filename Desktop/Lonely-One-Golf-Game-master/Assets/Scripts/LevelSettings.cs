@@ -12,8 +12,8 @@ public class LevelSettings : MonoBehaviour
     public bool enableZoom = false;
     public Transform holeTransform;
     public float zoomDistance = 2f;
-    public float minCameraY = 0f;
-    public float maxCameraY = 10f;
+    public float cameraMinY = -10f;
+    public float cameraMaxY = 10f;
 
     public TimeOfDay levelTimeOfDay = TimeOfDay.Day; 
 

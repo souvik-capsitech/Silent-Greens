@@ -6495,13 +6495,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraZoom
   cam: {fileID: 519420031}
+  defaultSize: 5
   zoomSize: 3
   zoomSpeed: 2
+  zoomDistance: 2
+  zoomYOffset: 1
   ball: {fileID: 626650539}
   hole: {fileID: 7272445150407492920, guid: 28dd023bce604b14a98175e37808d969, type: 3}
-  zoomDistance: 2
-  minCamY: -10
-  maxCamY: 10
+  minY: -10
+  maxY: 0
 --- !u!1 &527224941
 GameObject:
   m_ObjectHideFlags: 0
@@ -7878,7 +7880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1594504814
 RectTransform:
   m_ObjectHideFlags: 0
