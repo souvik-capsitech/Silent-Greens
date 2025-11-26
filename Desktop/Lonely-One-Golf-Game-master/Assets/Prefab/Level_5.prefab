@@ -249,7 +249,7 @@ Transform:
   m_GameObject: {fileID: 1297640530532296532}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.99331, y: -3.57555, z: 0}
+  m_LocalPosition: {x: -8.99331, y: -3.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -278,6 +278,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d920f4f11ddda154baf1ea1af47222a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSettings
+  enableZoom: 1
+  holeTransform: {fileID: 2365475931080069845}
+  zoomDistance: 2
+  cameraMinY: 0
+  cameraMaxY: 0
   levelTimeOfDay: 0
 --- !u!1 &2069018110392355207
 GameObject:
