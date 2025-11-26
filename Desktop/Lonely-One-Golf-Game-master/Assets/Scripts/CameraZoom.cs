@@ -2,23 +2,29 @@ using UnityEngine;
 
 public class CameraZoom : MonoBehaviour
 {
-    [Header("Camera Settings")]
-    public Camera cam;              // Main Camera
-    public float defaultSize = 5f;  // Normal camera size
-    public float zoomSize = 3f;     // Zoomed-in size
-    public float zoomSpeed = 2f;    // Smooth zoom speed
-    public float zoomDistance = 2f; // Distance to trigger zoom
+    public Camera cam;
+    public float defaultSize = 5f;
+    public float zoomSize = 3f;
+    public float zoomSpeed = 2f;
+    public float zoomDistance = 2f;
+    public float zoomYOffset = 1f;
 
-    [HideInInspector]
-    public Transform ball;          // Assigned by LevelManager
-    [HideInInspector]
-    public Transform hole;          // Assigned by LevelManager
+    [HideInInspector] public Transform ball;
+    [HideInInspector] public Transform hole;
 
     private float targetSize;
+    private float fixedCamY;
+    public float minY;
+    public float maxY;
+
 
     private void Start()
     {
         if (cam == null) cam = Camera.main;
+
+   
+        fixedCamY = cam.transform.position.y;
+
         targetSize = defaultSize;
         cam.orthographicSize = defaultSize;
     }
@@ -27,21 +33,45 @@ public class CameraZoom : MonoBehaviour
     {
         if (cam == null || ball == null || hole == null) return;
 
-        // Check distance to hole
         float dist = Vector2.Distance(ball.position, hole.position);
+        bool closeToHole = dist <= zoomDistance;
 
-        // If ball is near hole, zoom in
-        targetSize = (dist <= zoomDistance) ? zoomSize : defaultSize;
+       
+        targetSize = closeToHole ? zoomSize : defaultSize;
 
-        // Smoothly interpolate camera size
-        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetSize, Time.deltaTime * zoomSpeed);
+        cam.orthographicSize = Mathf.Lerp(
+            cam.orthographicSize,
+            targetSize,
+            Time.deltaTime * zoomSpeed
+        );
+
+      
+        Vector3 pos = cam.transform.position;
+
+        if (closeToHole)
+        {
+            
+            pos.y = Mathf.Lerp(pos.y, hole.position.y + zoomYOffset, Time.deltaTime * zoomSpeed);
+        }
+        else
+        {
+       
+            pos.y = fixedCamY;
+        }
+        pos.y = Mathf.Clamp(pos.y, minY, maxY);
+
+        cam.transform.position = pos;
+        
     }
 
-    // Call this when loading a new level to reset zoom
     public void ResetCamera()
     {
         targetSize = defaultSize;
         cam.orthographicSize = defaultSize;
+
+       
+        fixedCamY = cam.transform.position.y;
+
         ball = null;
         hole = null;
     }

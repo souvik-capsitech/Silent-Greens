@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
-    public GameObject tutorialUI; // Assign your tutorial panel here
-    public float displayTime = 5f; // How long the tutorial stays visible
+    public GameObject tutorialUI;
+    public float displayTime = 5f;
 
     void Start()
     {
@@ -13,7 +13,7 @@ public class TutorialManager : MonoBehaviour
     void ShowTutorial()
     {
         tutorialUI.SetActive(true);
-        // Automatically hide after displayTime seconds
+        
         Invoke(nameof(HideTutorial), displayTime);
     }
 

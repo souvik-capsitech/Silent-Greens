@@ -668,8 +668,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d920f4f11ddda154baf1ea1af47222a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSettings
-  enableZoom: 0
-  holeTransform: {fileID: 0}
+  enableZoom: 1
+  holeTransform: {fileID: 7186039290147795803}
   zoomDistance: 2
   minCameraY: 0
   maxCameraY: 10

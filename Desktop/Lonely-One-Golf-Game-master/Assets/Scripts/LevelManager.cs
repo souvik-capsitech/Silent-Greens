@@ -44,8 +44,11 @@ public class LevelManager : MonoBehaviour
                     camZoom.ball = ball.transform;
                     camZoom.hole = settings.holeTransform;         
                     camZoom.zoomDistance = settings.zoomDistance;
+                        camZoom.minY = settings.cameraMinY;
+                        camZoom.maxY = settings.cameraMaxY;
+
                     }
-            else
+                    else
             {
                         camZoom.ball = null;
                         camZoom.hole = null;
