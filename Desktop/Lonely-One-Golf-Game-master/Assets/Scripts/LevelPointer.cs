@@ -28,8 +28,9 @@ public class LevelPointer : MonoBehaviour
         }
     }
 
-    public void MoveTo(Transform btn)
+    public void MoveTo(RectTransform btn)
     {
-        targetButton = btn.GetComponent<RectTransform>();
+        targetButton = btn;
     }
+
 }

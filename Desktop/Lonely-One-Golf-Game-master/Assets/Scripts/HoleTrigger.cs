@@ -73,8 +73,8 @@ public class Hole : MonoBehaviour
         yield return StartCoroutine(CoinPop());
 
 
-        LevelProgress.UnlockNextLevel(LevelLoader.levelToLoad);
         LevelManager manager = FindAnyObjectByType<LevelManager>();
+        LevelProgress.UnlockNextLevel(manager.CurrentLevelIndex);
         if (manager != null)
         {
             manager.OnLevelCompleted();  

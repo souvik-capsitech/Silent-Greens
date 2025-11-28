@@ -10,11 +10,12 @@ public class MainMenuScript : MonoBehaviour
     void Start()
     {
         optionsPanel.SetActive(false);
-        if(PlayerPrefs.GetInt("LastUnlockedLevel", 1) ==1)
-        {
-           
-            if (continueBtn) continueBtn.gameObject.SetActive(false);
-        }    
+        int last = PlayerPrefs.GetInt("LastUnlockedLevel", 0);
+
+        if (last > 0)
+            continueBtn.gameObject.SetActive(true);
+        else
+            continueBtn.gameObject.SetActive(false);
     }
 
     public void OnPlayButton()
@@ -26,7 +27,7 @@ public class MainMenuScript : MonoBehaviour
     public void OnNewGame()
     {
         PlayerPrefs.DeleteKey("LastUnlockedLevel");
-        LevelProgress.LastUnlockedLevel = 1;     
+        LevelProgress.LastUnlockedLevel = 0;     
         PlayerPrefs.Save();
 
         SceneManager.LoadScene("LevelSelect");

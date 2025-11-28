@@ -1,10 +1,12 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
     public GameObject[] levels;
     public GameObject ball;
+    public GameObject gameCompletedPanel;
+
     public int CurrentLevelIndex => currIdx;
 
     private GameObject currLevel;
@@ -119,8 +121,25 @@ public class LevelManager : MonoBehaviour
 
     public void OnLevelCompleted()
     {
-        LevelProgress.UnlockNextLevel(currIdx +1);
+                LevelProgress.UnlockNextLevel(currIdx);
+
+      
+        if (currIdx == levels.Length - 1)
+        {
+            ShowGameCompletedPanel();
+            return;
+        }
+
+      
+        LoadNextLevel();
     }
 
+    private void ShowGameCompletedPanel()
+    {
+        if (gameCompletedPanel != null)
+            gameCompletedPanel.SetActive(true);
+
+        //Time.timeScale = 0f; 
+    }
 
 }

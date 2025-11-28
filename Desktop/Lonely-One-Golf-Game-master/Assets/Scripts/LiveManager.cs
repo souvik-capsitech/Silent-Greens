@@ -65,7 +65,7 @@ public class LiveManager : MonoBehaviour
         icon.localPosition = startPos;
 
        
-        lifeIcons[idx].sprite = lifeOffSprite;
+        lifeIcons[idx].sprite=lifeOffSprite  ;
     }
 
     void UpdateLifeUI()

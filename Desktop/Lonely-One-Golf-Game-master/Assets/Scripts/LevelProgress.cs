@@ -7,7 +7,7 @@ public static class LevelProgress
   
     public static int LastUnlockedLevel
     {
-        get { return PlayerPrefs.GetInt(KEY, 1); }
+        get { return PlayerPrefs.GetInt(KEY, 0); }
         set { PlayerPrefs.SetInt(KEY, value); }
     }
 

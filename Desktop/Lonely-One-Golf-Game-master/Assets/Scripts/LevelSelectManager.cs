@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -14,8 +14,10 @@ public class LevelSelectManager : MonoBehaviour
     public TextMeshProUGUI levelText;
 
     [Header("Pointer & Buttons")]
-    public RectTransform pointer;         
-    public RectTransform[] levelButtons;  
+    public RectTransform pointer;
+    public LevelPointer levelPointer;
+
+    public RectTransform[] levelButtons;
 
     [Header("Settings")]
     public int totalLevels = 15;
@@ -31,21 +33,16 @@ public class LevelSelectManager : MonoBehaviour
     {
         yield return null;
 
-        lastUnlockedLevel = PlayerPrefs.GetInt("LastUnlockedLevel", 1);
-
-        scrollRect.horizontalNormalizedPosition =
-            (lastUnlockedLevel - 1) / (float)(totalLevels - 1);
+        
+        lastUnlockedLevel = PlayerPrefs.GetInt("LastUnlockedLevel", 0);
 
         UpdateLevelText();
         UpdatePointerPosition();
     }
 
-
-
     private void Start()
     {
-        if (PlayerPrefs.GetInt("LastUnlockedLevel", 1) < 1)
-            PlayerPrefs.SetInt("LastUnlockedLevel", 1);
+        
 
         homeBtn.onClick.AddListener(GoHome);
         swipeLeftBtn.onClick.AddListener(SwipeLeft);
@@ -54,42 +51,43 @@ public class LevelSelectManager : MonoBehaviour
 
     private void UpdateLevelText()
     {
-        levelText.text = lastUnlockedLevel + " / " + totalLevels;
+        levelText.text = (lastUnlockedLevel + 1) + " / " + totalLevels;
+
     }
 
-   
     private void UpdatePointerPosition()
     {
         if (pointer != null && levelButtons.Length > 0)
         {
-            int idx = Mathf.Clamp(lastUnlockedLevel - 1, 0, levelButtons.Length - 1);
-            pointer.position = levelButtons[idx].position;
+            int idx = Mathf.Clamp(lastUnlockedLevel, 0, levelButtons.Length - 1);
+
+            
+            levelPointer.MoveTo(levelButtons[idx]);
         }
     }
 
-  
+
     public void SetLastUnlockedLevel(int level)
     {
-        lastUnlockedLevel = Mathf.Clamp(level, 1, totalLevels);
+    
+        lastUnlockedLevel = Mathf.Clamp(level, 0, totalLevels - 1);
         PlayerPrefs.SetInt("LastUnlockedLevel", lastUnlockedLevel);
+
         UpdateLevelText();
         UpdatePointerPosition();
     }
 
-   
     public void GoHome()
     {
         SceneManager.LoadScene("MainMenu");
     }
 
-   
     public void SwipeLeft()
     {
         scrollRect.horizontalNormalizedPosition =
             Mathf.Clamp01(scrollRect.horizontalNormalizedPosition - swipeAmount);
     }
 
-    
     public void SwipeRight()
     {
         scrollRect.horizontalNormalizedPosition =
