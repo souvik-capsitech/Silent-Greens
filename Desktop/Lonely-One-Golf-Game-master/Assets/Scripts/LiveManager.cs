@@ -7,7 +7,7 @@ public class LiveManager : MonoBehaviour
 
     public int maxLives = 3;
     public int currentLives;
-    public GameObject gameOverPanel;
+    //public GameObject gameOverPanel;
     public Image[] lifeIcons;
     public Sprite lifeOnSprite;
     public Sprite lifeOffSprite;
@@ -25,23 +25,27 @@ public class LiveManager : MonoBehaviour
     {
         currentLives--;
 
-        
         int index = Mathf.Clamp(currentLives, 0, lifeIcons.Length - 1);
+
+      
+        if (currentLives <= 0)
+        {
+         
+            lifeIcons[index].sprite = lifeOffSprite;
+
+         
+            GameOver();
+            return;
+        }
 
         OopsPopUp.instance.PlayOops();
         StartCoroutine(AnimateLifeLoss(index));
 
-        if (currentLives <= 0)
-        {
-            GameOver();
-        }
-        else
-        {
-            Time.timeScale = 1f;
-            var levelManager = FindFirstObjectByType<LevelManager>();
-            levelManager.LoadLevel(levelManager.CurrentLevelIndex);
-        }
+        Time.timeScale = 1f;
+        var levelManager = FindFirstObjectByType<LevelManager>();
+        levelManager.LoadLevel(levelManager.CurrentLevelIndex);
     }
+
 
 
 
@@ -76,12 +80,19 @@ public class LiveManager : MonoBehaviour
     }
     void GameOver()
     {
-
-        gameOverPanel.SetActive(true);
         Debug.Log("Game Over!");
-        //Time.timeScale = 0f;
 
+      
+        GameUI gameUI = FindFirstObjectByType<GameUI>();
+        if (gameUI != null)
+            gameUI.ShowGameOver();
+        else
+            Debug.LogError("GameUI not found in scene!");
+
+      
+        // Time.timeScale = 0f;
     }
+
 
     // Update is called once per frame
     void Update()

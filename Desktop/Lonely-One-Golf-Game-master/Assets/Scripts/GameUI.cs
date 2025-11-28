@@ -3,10 +3,10 @@
 
     public class GameUI : MonoBehaviour
     {
-        public GameObject gameOverPanel;
-
-
-        public void PlayGame()
+      public GameObject gameOverPanel;
+    public TMPro.TextMeshProUGUI finalScoreText;
+    public TMPro.TextMeshProUGUI bestScoreText;
+    public void PlayGame()
         {
             SceneManager.LoadScene("LevelSelect");
         }
@@ -16,11 +16,31 @@
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        public void ShowGameOver()
-        {
-            gameOverPanel.SetActive(true);
-        }
-        
+    public void Home()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
+
+
+    public void ShowGameOver()
+    {
+       
+        ScoreManager.instance.SaveHighScore();
+
+     
+        finalScoreText.text = ScoreManager.instance.score.ToString();
+        int best = PlayerPrefs.GetInt("HighScore", 0);
+        bestScoreText.text = best.ToString();
+
+        Debug.Log(" Current Score: " + finalScoreText.text);
+        Debug.Log(" Best Score: " + bestScoreText.text);
+
+        gameOverPanel.SetActive(true);
+        //Time.timeScale = 0f;
+    }
+
+
     public void QuitLevel()
     {
         SceneManager.LoadScene("LevelSelect");

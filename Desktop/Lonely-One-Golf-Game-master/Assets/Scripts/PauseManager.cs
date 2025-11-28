@@ -28,6 +28,11 @@ public class PauseManager : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void Home()
+    {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 

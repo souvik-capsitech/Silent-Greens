@@ -11,11 +11,13 @@ public static class LevelProgress
         set { PlayerPrefs.SetInt(KEY, value); }
     }
 
-    public static void UnlockNextLevel(int currentLevel)
+    public static void UnlockNextLevel(int levelJustCompleted)
     {
-        if (currentLevel >= LastUnlockedLevel)
+        int nextLevel = levelJustCompleted + 1;
+        if (nextLevel > LastUnlockedLevel)
         {
-            LastUnlockedLevel = currentLevel + 1;
+            LastUnlockedLevel =nextLevel;
         }
     }
+
 }

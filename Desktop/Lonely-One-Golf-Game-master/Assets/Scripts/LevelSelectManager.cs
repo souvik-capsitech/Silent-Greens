@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 public class LevelSelectManager : MonoBehaviour
 {
@@ -23,17 +24,29 @@ public class LevelSelectManager : MonoBehaviour
 
     private void OnEnable()
     {
-        
+        StartCoroutine(InitAfterFrame());
+    }
+
+    private IEnumerator InitAfterFrame()
+    {
+        yield return null;
+
         lastUnlockedLevel = PlayerPrefs.GetInt("LastUnlockedLevel", 1);
 
-        scrollRect.horizontalNormalizedPosition = (lastUnlockedLevel - 1) / (float)(totalLevels - 1);
+        scrollRect.horizontalNormalizedPosition =
+            (lastUnlockedLevel - 1) / (float)(totalLevels - 1);
+
         UpdateLevelText();
         UpdatePointerPosition();
     }
 
+
+
     private void Start()
     {
-       
+        if (PlayerPrefs.GetInt("LastUnlockedLevel", 1) < 1)
+            PlayerPrefs.SetInt("LastUnlockedLevel", 1);
+
         homeBtn.onClick.AddListener(GoHome);
         swipeLeftBtn.onClick.AddListener(SwipeLeft);
         swipeRightBtn.onClick.AddListener(SwipeRight);
