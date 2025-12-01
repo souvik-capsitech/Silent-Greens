@@ -8,6 +8,7 @@ public class CameraZoom : MonoBehaviour
     public float zoomSpeed = 2f;
     public float zoomDistance = 2f;
     public float zoomYOffset = 1f;
+    private float originalCamY;
 
     [HideInInspector] public Transform ball;
     [HideInInspector] public Transform hole;
@@ -18,12 +19,15 @@ public class CameraZoom : MonoBehaviour
     public float maxY;
 
 
-    private void Start()
+ 
+  private void Start()
     {
         if (cam == null) cam = Camera.main;
 
-   
-        fixedCamY = cam.transform.position.y;
+      
+        originalCamY = cam.transform.position.y;
+
+        fixedCamY = originalCamY;
 
         targetSize = defaultSize;
         cam.orthographicSize = defaultSize;
@@ -69,10 +73,16 @@ public class CameraZoom : MonoBehaviour
         targetSize = defaultSize;
         cam.orthographicSize = defaultSize;
 
-       
-        fixedCamY = cam.transform.position.y;
+        
+        fixedCamY = originalCamY;
 
+        Vector3 pos = cam.transform.position;
+        pos.y = originalCamY;
+        cam.transform.position = pos;
+
+      
         ball = null;
         hole = null;
     }
+
 }
