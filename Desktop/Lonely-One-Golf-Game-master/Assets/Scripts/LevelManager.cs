@@ -6,6 +6,8 @@ public class LevelManager : MonoBehaviour
     public GameObject[] levels;
     public GameObject ball;
     public GameObject gameCompletedPanel;
+    public GameObject tutorialRoot;
+
 
     public int CurrentLevelIndex => currIdx;
 
@@ -102,12 +104,22 @@ public class LevelManager : MonoBehaviour
 
         ball.GetComponent<Collider2D>().enabled = true;
         ball.GetComponent<PlayerMovement>().ResetBall();
+
+        if (currIdx == 0 && !TutorialManager.IsTutorialShown)
+        {
+            tutorialRoot.SetActive(true);
+        }
+        else
+        {
+            tutorialRoot.SetActive(false);
+        }
+
     }
 
     public void LoadNextLevel()
     {
         currIdx++;
-        if (currIdx > levels.Length)
+        if (currIdx >= levels.Length)
             currIdx = 0;
 
         LoadLevel(currIdx);

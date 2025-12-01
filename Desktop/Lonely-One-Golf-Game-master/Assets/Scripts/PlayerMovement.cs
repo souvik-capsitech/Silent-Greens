@@ -14,9 +14,10 @@ public class PlayerMovement : MonoBehaviour
     bool dragging = false;
     public ParticleSystem impactEffect;
     public RectTransform cancelButtonRect;
+    public FingerTrajectoryTutorial tutorial;
 
 
-private bool firstHitDone = false;
+    private bool firstHitDone = false;
     private bool dragApplied = false;
     public TrailRenderer trail;
 
@@ -82,6 +83,14 @@ private bool firstHitDone = false;
 
         if (!dragging && Input.GetMouseButtonDown(0))
         {
+            FingerTrajectoryTutorial tut = FindFirstObjectByType<FingerTrajectoryTutorial>();
+            if (tut != null)
+            {
+                tut.StopTutorial();
+                TutorialManager.IsTutorialShown = true;   
+            }
+
+          
             dragStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             dragStartPos.z = 0;
 
@@ -92,6 +101,7 @@ private bool firstHitDone = false;
 
             trajectory.Hide();
         }
+
 
         if (Input.GetMouseButtonUp(0) && dragging)
         {
