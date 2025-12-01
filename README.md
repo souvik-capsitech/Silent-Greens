@@ -1,4 +1,4 @@
-# Silent Greens – Game Documentation
+# Silent Greens 
 
 ## 1. Overview
 Silent Greens is a calm and minimalistic 2D casual golf-inspired game where players guide a small ball into a hole using simple drag-and-release controls. The game removes strict golf rules, focusing instead on smooth physics, relaxed pacing, and cozy visuals across handcrafted levels.
