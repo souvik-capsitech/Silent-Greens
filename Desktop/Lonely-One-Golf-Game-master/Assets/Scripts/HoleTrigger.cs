@@ -78,7 +78,7 @@ public class Hole : MonoBehaviour
         if (manager != null)
         {
             manager.OnLevelCompleted();  
-            manager.LoadNextLevel();     
+         
         }
 
     }
