@@ -3455,7 +3455,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: abdf2260525b4f241845ac9de6de29b0, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -3640,9 +3640,9 @@ RectTransform:
   - {fileID: 626354307}
   m_Father: {fileID: 46016252}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36.121895, y: 420.01172}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -36.121895, y: -68.98828}
   m_SizeDelta: {x: 442.8553, y: 140.51001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1489133872
@@ -4327,7 +4327,7 @@ MonoBehaviour:
   - {fileID: 1566748814}
   - {fileID: 545372751}
   - {fileID: 1496261286}
-  totalLevels: 16
+  totalLevels: 15
 --- !u!4 &2106651226
 Transform:
   m_ObjectHideFlags: 0

@@ -1876,8 +1876,8 @@ MonoBehaviour:
   enableZoom: 1
   holeTransform: {fileID: 3556819984541966463}
   zoomDistance: 2
-  minCameraY: 0
-  maxCameraY: 10
+  cameraMinY: -10
+  cameraMaxY: 10
   levelTimeOfDay: 0
 --- !u!1 &7218566482594921204
 GameObject:

@@ -168,9 +168,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag("Water"))
         {
+            //OopsPopUp.instance.oopsText.text = "Into the drink!";
+            OopsPopUp.instance.PlayOops();
+
             StartCoroutine(LifeLoss());
         }
-    }
+        }
 
     IEnumerator LifeLoss()
     {
@@ -220,7 +223,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (windManager != null && rb.linearVelocity.magnitude > 0.05f)
         {
-            rb.AddForce(windManager.GetWindForce()* Time.fixedDeltaTime, ForceMode2D.Force );
+            rb.AddForce(windManager.GetWindForce(), ForceMode2D.Force);
+
         }
     }
 

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -7,6 +9,8 @@ public class LevelManager : MonoBehaviour
     public GameObject ball;
     public GameObject gameCompletedPanel;
     public GameObject tutorialRoot;
+    public WindTutorialManager windTutorialManager;
+    private const string WindTutorialKey = "WindTutorialShown";
 
 
     public int CurrentLevelIndex => currIdx;
@@ -34,8 +38,7 @@ public class LevelManager : MonoBehaviour
         }
 
         currLevel = Instantiate(levels[idx]);
-
-      
+    
         DayNightManager dayNight = FindAnyObjectByType<DayNightManager>();
         if (dayNight != null)
         {
@@ -105,16 +108,37 @@ public class LevelManager : MonoBehaviour
         ball.GetComponent<Collider2D>().enabled = true;
         ball.GetComponent<PlayerMovement>().ResetBall();
 
-        if (currIdx == 0 && !TutorialManager.IsTutorialShown)
+        tutorialRoot.SetActive(idx == 0 && !TutorialManager.IsTutorialShown);
+
+        Transform triangle = currLevel.transform.Find("Triangle");
+        Debug.Log("Triangle found: " + (triangle != null));
+
+        bool windTutorialAlreadyShown = PlayerPrefs.GetInt("WindTutorialShown", 0) == 1;
+
+        if (triangle != null && !windTutorialAlreadyShown)
         {
-            tutorialRoot.SetActive(true);
+            Debug.Log("Starting wind tutorial...");
+            string windTutorialText = "Watch out! The arrow shows the direction of wind.\nThe wind can push your ball off course.";
+            StartCoroutine(StartWindTutorialWithDelay(triangle.gameObject, windTutorialText));
         }
         else
         {
-            tutorialRoot.SetActive(false);
+            Debug.Log("Wind tutorial skipped");
         }
 
+
+
+
     }
+
+
+    private IEnumerator StartWindTutorialWithDelay(GameObject triangle, string tutorialText)
+    {
+        yield return new WaitForSeconds(1f);
+
+        windTutorialManager.PlayWindTutorial(triangle, tutorialText);
+    }
+
 
     public void LoadNextLevel()
     {

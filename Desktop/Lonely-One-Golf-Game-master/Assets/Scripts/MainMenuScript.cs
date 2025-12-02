@@ -29,6 +29,7 @@ public class MainMenuScript : MonoBehaviour
         PlayerPrefs.DeleteKey("LastUnlockedLevel");
         LevelProgress.LastUnlockedLevel = 0;     
         TutorialManager.IsTutorialShown = false;
+        PlayerPrefs.DeleteKey("WindTutorialShown");
         PlayerPrefs.Save();
 
         SceneManager.LoadScene("LevelSelect");

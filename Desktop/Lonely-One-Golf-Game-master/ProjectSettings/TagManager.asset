@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Water
   - Gameplay
+  - Triangle
   layers:
   - Default
   - TransparentFX

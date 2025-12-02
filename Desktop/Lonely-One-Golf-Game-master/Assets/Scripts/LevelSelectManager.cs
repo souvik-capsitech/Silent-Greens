@@ -51,7 +51,7 @@ public class LevelSelectManager : MonoBehaviour
 
     private void UpdateLevelText()
     {
-        levelText.text = (lastUnlockedLevel + 1) + " / " + totalLevels;
+        levelText.text = (lastUnlockedLevel) + " / " + totalLevels;
 
     }
 
