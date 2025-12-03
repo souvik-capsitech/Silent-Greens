@@ -1120,6 +1120,7 @@ GameObject:
   - component: {fileID: 2278882663965381760}
   - component: {fileID: 3702881142966957250}
   - component: {fileID: 8325574146409037103}
+  - component: {fileID: 424851750951422859}
   m_Layer: 4
   m_Name: Water3
   m_TagString: Water
@@ -1246,6 +1247,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 91.29, y: 16.894}
   m_EdgeRadius: 0
+--- !u!114 &424851750951422859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4260345051209812256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d4838756394ef419c0b2f3c2f4bcae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaterWave
+  speed: 1
+  amplitude: 0.1
+  material: {fileID: 0}
 --- !u!1 &4732746238677613757
 GameObject:
   m_ObjectHideFlags: 0

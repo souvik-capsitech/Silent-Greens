@@ -2806,10 +2806,10 @@ RectTransform:
   - {fileID: 1566748814}
   - {fileID: 545372751}
   - {fileID: 1496261286}
-  - {fileID: 1199648781}
   - {fileID: 1988339126}
   - {fileID: 126206501}
   - {fileID: 1147616400}
+  - {fileID: 1199648781}
   - {fileID: 1032841128}
   m_Father: {fileID: 1489133873}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
