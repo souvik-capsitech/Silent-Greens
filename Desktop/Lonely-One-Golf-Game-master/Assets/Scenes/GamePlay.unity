@@ -6176,7 +6176,7 @@ MonoBehaviour:
   dayColor: {r: 0.7019608, g: 0.88235295, b: 0.9490196, a: 1}
   eveningColor: {r: 1, g: 0.827451, b: 0.41960785, a: 1}
   nightColor: {r: 0.1254902, g: 0.29411766, b: 0.39607844, a: 1}
-  transitionDuration: 1.5
+  transitionDuration: 1
 --- !u!1 &322560473
 GameObject:
   m_ObjectHideFlags: 0
