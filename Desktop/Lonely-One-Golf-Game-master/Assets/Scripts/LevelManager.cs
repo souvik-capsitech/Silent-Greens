@@ -1,104 +1,70 @@
-﻿using System;
+﻿using UnityEngine;
 using System.Collections;
-
-using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public GameObject[] levels;
+    [Header("References")]
     public GameObject ball;
     public GameObject gameCompletedPanel;
     public GameObject tutorialRoot;
-    public WindTutorialManager windTutorialManager;
-    private const string WindTutorialKey = "WindTutorialShown";
 
+    [Header("Level Data")]
+    public LevelData[] levels;
 
-    public int CurrentLevelIndex => currIdx;
+    private int currentIndex;
+    private GameObject currentPrefabInstance;
 
-    private GameObject currLevel;
-    private int currIdx = 0;
+    public int CurrentLevelIndex => currentIndex;
 
-    void Start()
+    private void Start()
     {
-    
-        currIdx = LevelLoader.levelToLoad;
 
-       
-        if (currIdx < 0 || currIdx >= levels.Length)
-            currIdx = 0;
+        currentIndex = LevelLoader.levelToLoad;
 
-        LoadLevel(currIdx);
+        if (currentIndex < 0 || currentIndex >= levels.Length)
+            currentIndex = 0;
+
+        LoadLevel(currentIndex);
     }
 
-    public void LoadLevel(int idx)
+ 
+    public void LoadLevel(int index)
     {
-        if (currLevel != null)
-        {
-            Destroy(currLevel);
-        }
 
-        currLevel = Instantiate(levels[idx]);
-    
+        if (currentPrefabInstance != null)
+            Destroy(currentPrefabInstance);
+
+        LevelData data = levels[index];
+
+
+        currentPrefabInstance = Instantiate(data.levelPrefab);
+
         DayNightManager dayNight = FindAnyObjectByType<DayNightManager>();
         if (dayNight != null)
         {
-            LevelSettings settings = currLevel.GetComponent<LevelSettings>();
-
-            if (settings != null)
-            {
-        CameraZoom camZoom = FindAnyObjectByType<CameraZoom>();
-
-        if (camZoom != null)
-        {
-                    camZoom.ResetCamera();
-
-                    
-                    if (settings != null && settings.enableZoom)
-                    {
-                    camZoom.ball = ball.transform;
-                    camZoom.hole = settings.holeTransform;         
-                    camZoom.zoomDistance = settings.zoomDistance;
-                        camZoom.minY = settings.cameraMinY;
-                        camZoom.maxY = settings.cameraMaxY;
-
-                    }
-                    else
-            {
-                        camZoom.ball = null;
-                        camZoom.hole = null;
-                    }
-                  
-                }
-         
-                switch (settings.levelTimeOfDay)
-                {
-                    case LevelSettings.TimeOfDay.Day:
-                        dayNight.SetTimeOfDay("day");
-                        break;
-                    case LevelSettings.TimeOfDay.Evening:
-                        dayNight.SetTimeOfDay("evening");
-                        break;
-                    case LevelSettings.TimeOfDay.Night:
-                        dayNight.SetTimeOfDay("night");
-                        break;
-                }
-            }
+            dayNight.SetTimeOfDay(data.timeOfDay);
         }
-     
 
-       
-        Transform spawn = currLevel.transform.Find("SpawnPoint");
-        if (spawn != null)
+        WindManager wind = FindAnyObjectByType<WindManager>();
+        if (wind != null)
         {
-            ball.transform.position = spawn.position;
+            wind.windEnabled = data.windEnabled;
+            wind.windDirection = data.windDirection.normalized;
+            wind.windStrength = data.windStrength;
         }
-        else
+
+    
+        Transform spawn = currentPrefabInstance.transform.Find("SpawnPoint");
+
+        if (spawn == null)
         {
-            Debug.LogError("SpawnPoint not found in level " + idx);
+            Debug.LogError("SpawnPoint missing in: " + data.name);
             return;
         }
 
+        ball.transform.position = spawn.position;
         ball.SetActive(true);
+
 
         Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();
         rb.linearVelocity = Vector2.zero;
@@ -108,74 +74,86 @@ public class LevelManager : MonoBehaviour
         ball.GetComponent<Collider2D>().enabled = true;
         ball.GetComponent<PlayerMovement>().ResetBall();
 
-        tutorialRoot.SetActive(idx == 0 && !TutorialManager.IsTutorialShown);
+     
+        CameraZoom camZoom = FindAnyObjectByType<CameraZoom>();
 
-        Transform triangle = currLevel.transform.Find("Triangle");
-        Debug.Log("Triangle found: " + (triangle != null));
-
-        bool windTutorialAlreadyShown = PlayerPrefs.GetInt("WindTutorialShown", 0) == 1;
-
-        if (triangle != null && !windTutorialAlreadyShown)
+        if (camZoom != null)
         {
-            Debug.Log("Starting wind tutorial...");
-            string windTutorialText = "Watch out! The arrow shows the direction of wind.\nThe wind can push your ball off course.";
-            StartCoroutine(StartWindTutorialWithDelay(triangle.gameObject, windTutorialText));
+            camZoom.ResetCamera();
+
+            if (data.enableZoom)
+            {
+                camZoom.ball = ball.transform;
+                camZoom.hole = data.holeTransform;
+                camZoom.zoomDistance = data.zoomDistance;
+                camZoom.minY = data.cameraMinY;
+                camZoom.maxY = data.cameraMaxY;
+            }
+            else
+            {
+                camZoom.ball = null;
+                camZoom.hole = null;
+            }
         }
-        else
+
+    
+        tutorialRoot.SetActive(index == 0 && !TutorialManager.IsTutorialShown);
+
+        if (data.showWindTutorial)
         {
-            Debug.Log("Wind tutorial skipped");
+            Transform triangle = currentPrefabInstance.transform.Find("Triangle");
+            bool windTutSeen = PlayerPrefs.GetInt("WindTutorialShown", 0) == 1;
+
+            if (triangle != null && !windTutSeen)
+            {
+                StartCoroutine(PlayWindTutorial(triangle.gameObject));
+            }
         }
-
-
-
-
     }
 
-
-    private IEnumerator StartWindTutorialWithDelay(GameObject triangle, string tutorialText)
+    private IEnumerator PlayWindTutorial(GameObject triangle)
     {
         yield return new WaitForSeconds(1f);
 
-        windTutorialManager.PlayWindTutorial(triangle, tutorialText);
+        WindTutorialManager tut = FindAnyObjectByType<WindTutorialManager>();
+        if (tut != null)
+        {
+            tut.PlayWindTutorial(
+                triangle,
+                "Watch out! The arrow shows the direction of wind.\nThe wind can push your ball off course."
+            );
+        }
     }
 
 
+    public void OnLevelCompleted()
+    {
+        LevelProgress.UnlockNextLevel(currentIndex);
+
+        if (currentIndex == levels.Length - 1)
+        {
+            // Last level
+            if (gameCompletedPanel != null)
+                gameCompletedPanel.SetActive(true);
+            return;
+        }
+
+        LoadNextLevel();
+    }
+
     public void LoadNextLevel()
     {
-        currIdx++;
-        if (currIdx >= levels.Length)
-            currIdx = 0;
+        currentIndex++;
 
-        LoadLevel(currIdx);
+        if (currentIndex >= levels.Length)
+            currentIndex = 0;
+
+        LoadLevel(currentIndex);
     }
 
     public void RestartLevel()
     {
-        LoadLevel(currIdx);
+        LoadLevel(currentIndex);
         Time.timeScale = 1f;
     }
-
-    public void OnLevelCompleted()
-    {
-                LevelProgress.UnlockNextLevel(currIdx);
-
-      
-        if (currIdx == levels.Length - 1)
-        {
-            ShowGameCompletedPanel();
-            return;
-        }
-
-      
-        LoadNextLevel();
-    }
-
-    private void ShowGameCompletedPanel()
-    {
-        if (gameCompletedPanel != null)
-            gameCompletedPanel.SetActive(true);
-
-        //Time.timeScale = 0f; 
-    }
-
 }

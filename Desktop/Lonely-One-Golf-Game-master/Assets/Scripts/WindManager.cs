@@ -2,32 +2,33 @@ using UnityEngine;
 
 public class WindManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    [Header("Wind Settings")]
     public Vector2 windDirection = Vector2.right;
     public float windStrength = 3f;
     public bool windEnabled = true;
 
-
-    void OnValidate()
+    private void OnValidate()
     {
-        if(windDirection != Vector2.zero)
+        if (windDirection.sqrMagnitude > 0.001f)
             windDirection = windDirection.normalized;
     }
+
     public Vector2 GetWindForce()
     {
-        if(!windEnabled) return Vector2.zero;
+        if (!windEnabled)
+            return Vector2.zero;
+
         return windDirection * windStrength;
-        
-    }
-    void Start()
-    {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    // Called by LevelLoader
+    public void ApplyWind(bool enabled, Vector2 direction, float strength)
     {
-        
+        windEnabled = enabled;
+
+        if (direction.sqrMagnitude > 0.001f)
+            windDirection = direction.normalized;
+
+        windStrength = strength;
     }
 }

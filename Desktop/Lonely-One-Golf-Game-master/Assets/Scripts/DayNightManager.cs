@@ -1,52 +1,55 @@
 using System.Collections;
 using UnityEngine;
 
+
+
 public class DayNightManager : MonoBehaviour
 {
+    [Header("Camera")]
     public Camera mainCam;
 
+    [Header("Sky Colors")]
     public Color dayColor = new Color(0.5f, 0.8f, 1f);
-    public Color eveningColor = new Color(1f, 0.6f, 0.3f); 
+    public Color eveningColor = new Color(1f, 0.6f, 0.3f);
     public Color nightColor = new Color(0.02f, 0.05f, 0.1f);
 
+    [Header("Transition Settings")]
     public float transitionDuration = 1.5f;
 
-    void Awake()
+    private void Awake()
     {
         if (mainCam == null)
             mainCam = Camera.main;
     }
 
-    
-    public void SetTimeOfDay(string timeOfDay)
+    public void SetTimeOfDay(TimeOfDayType type)
     {
         StopAllCoroutines();
 
-        switch (timeOfDay.ToLower())
+        switch (type)
         {
-            case "day":
+            case TimeOfDayType.Day:
                 StartCoroutine(FadeToColor(dayColor));
                 break;
-            case "evening":
+            case TimeOfDayType.Evening:
                 StartCoroutine(FadeToColor(eveningColor));
                 break;
-            case "night":
+            case TimeOfDayType.Night:
                 StartCoroutine(FadeToColor(nightColor));
                 break;
         }
     }
 
-    IEnumerator FadeToColor(Color targetColor)
+    private IEnumerator FadeToColor(Color targetColor)
     {
         float t = 0;
-        Color start = mainCam.backgroundColor;
+        Color startColor = mainCam.backgroundColor;
 
         while (t < 1)
         {
             t += Time.deltaTime / transitionDuration;
-            mainCam.backgroundColor = Color.Lerp(start, targetColor, t);
+            mainCam.backgroundColor = Color.Lerp(startColor, targetColor, t);
             yield return null;
         }
     }
 }
- 
