@@ -10,7 +10,7 @@ public class LevelData : ScriptableObject
     public TimeOfDayType timeOfDay;
 
     public bool windEnabled;
-    public Vector2 windDirection = Vector2.right;
+    public Vector2 windDirection;
     public float windStrength = 3f;
     public bool showWindTutorial;
 

@@ -19,7 +19,6 @@ MonoBehaviour:
   windStrength: 3
   showWindTutorial: 0
   enableZoom: 1
-  holeTransform: {fileID: 1876731202276293996, guid: 8a1c9e1056f50df4c86572ecc640e11b, type: 3}
-  zoomDistance: 3
+  zoomDistance: 2
   cameraMinY: -10
   cameraMaxY: 10
