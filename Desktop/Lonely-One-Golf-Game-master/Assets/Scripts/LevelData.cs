@@ -15,7 +15,7 @@ public class LevelData : ScriptableObject
     public bool showWindTutorial;
 
     public bool enableZoom;
-    public Transform holeTransform;
+    //public Transform holeTransform;
     public float zoomDistance;
     public float cameraMinY;
     public float cameraMaxY;
