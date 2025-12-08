@@ -6018,26 +6018,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0259de758ce1ad14781e49de6ab10a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
-  levels:
-  - {fileID: 2952787778089475380, guid: 28dd023bce604b14a98175e37808d969, type: 3}
-  - {fileID: 1012213401581402360, guid: 8a1c9e1056f50df4c86572ecc640e11b, type: 3}
-  - {fileID: 1668419134207223160, guid: 14b72306bf1811c4390ea4436a4ccea5, type: 3}
-  - {fileID: 7066914080228019219, guid: 2b11be15566c2164285650b241e0b66c, type: 3}
-  - {fileID: 1297640530532296532, guid: 9722fd229bf4669489e7038fe577120c, type: 3}
-  - {fileID: 834986975033331573, guid: 4e96f7ee4aa930443a6b377c69b6f530, type: 3}
-  - {fileID: 1012213401581402360, guid: f7942012e10ddbb4f9d299595ed5c6c6, type: 3}
-  - {fileID: 7578839014141641556, guid: 744d7312c0f7168489359d1ac8c7b360, type: 3}
-  - {fileID: 1012213401581402360, guid: de242684ef4c0b642ba12fa7bc49ea02, type: 3}
-  - {fileID: 1012213401581402360, guid: 3530b8de5c75b2744b37476a68e587b4, type: 3}
-  - {fileID: 1012213401581402360, guid: a299d5c004cd23945b57e4a8b2e516a7, type: 3}
-  - {fileID: 1012213401581402360, guid: c7674ee660380a347b4727f89844e15a, type: 3}
-  - {fileID: 1012213401581402360, guid: c233d09677d5eff4f9d66b3d6b5fcb31, type: 3}
-  - {fileID: 1012213401581402360, guid: 2dafeb08484b6554f8d9448848ed6b69, type: 3}
-  - {fileID: 6688003993834621720, guid: 19d46d0df7627874d93c66da294d888d, type: 3}
   ball: {fileID: 626650535}
   gameCompletedPanel: {fileID: 547028770}
   tutorialRoot: {fileID: 1918455838}
-  windTutorialManager: {fileID: 1968223187}
+  levels:
+  - {fileID: 11400000, guid: 0560fb523865b5d468c23ab3f10ed68d, type: 2}
 --- !u!4 &222451641
 Transform:
   m_ObjectHideFlags: 0

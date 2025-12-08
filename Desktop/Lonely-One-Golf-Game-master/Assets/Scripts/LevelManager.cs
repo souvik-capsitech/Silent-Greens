@@ -75,6 +75,8 @@ public class LevelManager : MonoBehaviour
         ball.GetComponent<PlayerMovement>().ResetBall();
 
      
+   
+
         CameraZoom camZoom = FindAnyObjectByType<CameraZoom>();
 
         if (camZoom != null)
@@ -83,8 +85,13 @@ public class LevelManager : MonoBehaviour
 
             if (data.enableZoom)
             {
+                Transform hole = currentPrefabInstance.transform.Find("Hole");
+
+                if (hole == null)
+                    Debug.LogError("Hole not found in prefab: " + data.levelPrefab.name);
+
                 camZoom.ball = ball.transform;
-                camZoom.hole = data.holeTransform;
+                camZoom.hole = hole;
                 camZoom.zoomDistance = data.zoomDistance;
                 camZoom.minY = data.cameraMinY;
                 camZoom.maxY = data.cameraMaxY;
@@ -96,7 +103,7 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-    
+
         tutorialRoot.SetActive(index == 0 && !TutorialManager.IsTutorialShown);
 
         if (data.showWindTutorial)

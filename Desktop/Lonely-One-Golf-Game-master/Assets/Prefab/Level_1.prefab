@@ -873,8 +873,8 @@ Transform:
   m_GameObject: {fileID: 3498770053700064239}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1059.7017, y: -488.44348, z: 0}
-  m_LocalScale: {x: 1.2080828, y: 1.0946301, z: 0.90582174}
+  m_LocalPosition: {x: -1059.7017, y: -488.3172, z: 0}
+  m_LocalScale: {x: 1.2080828, y: 1.1314096, z: 0.90582174}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7358270962090761647}
@@ -2146,7 +2146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 1049474413037590093}
-  zoomThisLevel: 0
+  zoomThisLevel: 1
 --- !u!61 &9135074045446100599
 BoxCollider2D:
   m_ObjectHideFlags: 0
