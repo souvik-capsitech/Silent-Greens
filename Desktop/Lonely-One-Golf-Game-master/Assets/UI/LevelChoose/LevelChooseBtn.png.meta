@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d387e8a7b43f5f74ca4f20b550d89d13
+guid: 9f92252fc7ffd8540a8cb22471d1e704
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -35373140211664203
-    second: CurvePath_0
+      213: 2268547122015235448
+    second: LevelChooseBtn_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CurvePath_0
+      name: LevelChooseBtn_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2092
-        height: 598
+        width: 90
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5baf71ff054528ff0800000000000000
-      internalID: -35373140211664203
+      spriteID: 87de3f3969f7b7f10800000000000000
+      internalID: 2268547122015235448
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CurvePath_0: -35373140211664203
+      LevelChooseBtn_0: 2268547122015235448
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

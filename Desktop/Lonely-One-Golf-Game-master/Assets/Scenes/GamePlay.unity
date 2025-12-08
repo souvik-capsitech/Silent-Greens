@@ -6023,6 +6023,25 @@ MonoBehaviour:
   tutorialRoot: {fileID: 1918455838}
   levels:
   - {fileID: 11400000, guid: 0560fb523865b5d468c23ab3f10ed68d, type: 2}
+  - {fileID: 11400000, guid: 38c3532bad7064d4caab65f288cd6c39, type: 2}
+  - {fileID: 11400000, guid: b15007cf12e169d4dbdb07230db0f724, type: 2}
+  - {fileID: 11400000, guid: d512107abcfb2ab448a3f8f87112710b, type: 2}
+  - {fileID: 11400000, guid: 00ea406a17f37e146a30136e0750e4d7, type: 2}
+  - {fileID: 11400000, guid: 54fd81b0cc797ed42a58a3ed1d4b6a01, type: 2}
+  - {fileID: 11400000, guid: d2eadcaf6006fb849ab053ac8e70b462, type: 2}
+  - {fileID: 11400000, guid: dedc3b8ea578a54438fdda24f18518b2, type: 2}
+  - {fileID: 11400000, guid: a721450ec6062f742b78594a69618355, type: 2}
+  - {fileID: 11400000, guid: a87040f374a85424784a5ced9ae9140c, type: 2}
+  - {fileID: 11400000, guid: db9381c1cf23e064a8ca1be6f48d1136, type: 2}
+  - {fileID: 11400000, guid: 1fd59b8ed82684a41b5a45471343b0b0, type: 2}
+  - {fileID: 11400000, guid: 82f59149bd8046249997b2ff12c55b2e, type: 2}
+  - {fileID: 11400000, guid: 6a7d388166f2f9c4eabb9cc92baf3312, type: 2}
+  - {fileID: 11400000, guid: 7abe58053bc1c74438181c2d6021688f, type: 2}
+  - {fileID: 11400000, guid: b04ab66523a795c4d8a7deaf34a3da9a, type: 2}
+  - {fileID: 11400000, guid: 62987429e093eaa41a029883476c2723, type: 2}
+  - {fileID: 11400000, guid: 33e56a2af7e5b894aad1e96600c7f9ad, type: 2}
+  - {fileID: 11400000, guid: 72f495432152b904f993a06dc8925a7e, type: 2}
+  - {fileID: 11400000, guid: dba89718ca6bf0e4383efb3a88849ffb, type: 2}
 --- !u!4 &222451641
 Transform:
   m_ObjectHideFlags: 0
@@ -6032,7 +6051,7 @@ Transform:
   m_GameObject: {fileID: 222451639}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.27715, y: 6.67308, z: 0}
+  m_LocalPosition: {x: -0.19, y: -0.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6161,7 +6180,7 @@ MonoBehaviour:
   dayColor: {r: 0.7019608, g: 0.88235295, b: 0.9490196, a: 1}
   eveningColor: {r: 1, g: 0.827451, b: 0.41960785, a: 1}
   nightColor: {r: 0.1254902, g: 0.29411766, b: 0.39607844, a: 1}
-  transitionDuration: 1
+  transitionDuration: 1.2
 --- !u!1 &322560473
 GameObject:
   m_ObjectHideFlags: 0

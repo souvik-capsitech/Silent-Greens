@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d387e8a7b43f5f74ca4f20b550d89d13
+guid: da7c16ae5a9322b49b24d541106df927
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -35373140211664203
-    second: CurvePath_0
+      213: -1886350244936940444
+    second: Land18_ii_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CurvePath_0
+      name: Land18_ii_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2092
-        height: 598
+        width: 241
+        height: 244
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5baf71ff054528ff0800000000000000
-      internalID: -35373140211664203
+      spriteID: 4640090527652d5e0800000000000000
+      internalID: -1886350244936940444
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CurvePath_0: -35373140211664203
+      Land18_ii_0: -1886350244936940444
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
