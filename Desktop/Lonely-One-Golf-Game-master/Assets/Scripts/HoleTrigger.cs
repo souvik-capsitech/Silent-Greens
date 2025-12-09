@@ -7,17 +7,21 @@ public class Hole : MonoBehaviour
     public bool zoomThisLevel = false;
     private CameraZoom camZoom;
 
-     void Start()
+    void Start()
     {
-        camZoom=  Camera.main.GetComponent<CameraZoom>();
+        camZoom = Camera.main.GetComponent<CameraZoom>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Ball"))
-        {
+        if (!other.CompareTag("Ball")) return;
 
-            StartCoroutine(SuckBall(other.gameObject));
-        }
+        PlayerMovement pm = other.GetComponent<PlayerMovement>();
+        if (pm == null) return;
+
+      
+        pm.holeInOnePossible = false;   
+        StartCoroutine(SuckBall(other.gameObject));
+
     }
 
 
@@ -33,9 +37,8 @@ public class Hole : MonoBehaviour
         Vector3 endPos = transform.position;
 
         float t = 0f;
-        float duration = 0.4f;   
+        float duration = 0.4f;
 
-       
         TrailRenderer trail = ball.GetComponent<TrailRenderer>();
         if (trail != null)
         {
@@ -47,16 +50,10 @@ public class Hole : MonoBehaviour
         {
             t += Time.deltaTime;
             float lerp = t / duration;
-
             ball.transform.position = Vector3.Lerp(startPos, endPos, lerp);
-
-           
-            float scale = Mathf.Lerp(1f, 0.3f, lerp);
             ball.transform.localScale = new Vector3(0.2f, 0.2f, 0);
-
             yield return null;
         }
-
 
         if (trail != null)
         {
@@ -66,43 +63,35 @@ public class Hole : MonoBehaviour
 
         ball.SetActive(false);
 
-
         ScoreManager.instance.AddDirectShot();
 
         yield return new WaitForSeconds(0.1f);
         yield return StartCoroutine(CoinPop());
 
-
-        LevelManager manager = FindAnyObjectByType<LevelManager>();
-        LevelProgress.UnlockNextLevel(manager.CurrentLevelIndex);
-        if (manager != null)
+        LevelManager manager2 = FindAnyObjectByType<LevelManager>();
+        LevelProgress.UnlockNextLevel(manager2.CurrentLevelIndex);
+        if (manager2 != null)
         {
-            manager.OnLevelCompleted();  
-         
+            manager2.OnLevelCompleted();
         }
-
     }
-
 
     private IEnumerator CoinPop()
     {
         if (coin == null)
             yield break;
 
-      
         coin.gameObject.SetActive(true);
         coin.localScale = new Vector3(0.033f, 0.033f, 1f);
 
-      
         Animator anim = coin.GetComponent<Animator>();
         if (anim != null)
             anim.Play("CoinFlip");
 
-      
         Vector3 startPos = coin.localPosition;
         Vector3 endPos = startPos + new Vector3(0, 0.6f, 0);
 
-        float duration = 0.5f;     
+        float duration = 0.5f;
         float t = 0f;
 
         while (t < duration)
@@ -112,7 +101,6 @@ public class Hole : MonoBehaviour
             yield return null;
         }
 
-       
         yield return new WaitForSeconds(0.2f);
     }
 
