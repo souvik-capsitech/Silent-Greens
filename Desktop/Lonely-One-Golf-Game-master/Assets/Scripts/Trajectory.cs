@@ -58,15 +58,18 @@ public class Trajectory : MonoBehaviour
             dots[i].SetActive(true);
         }
     }
-
     public void Hide()
     {
-        foreach( var dot in dots)
-            dot.SetActive(false);
+        if (dots == null || dots.Length == 0) return;
+
+        foreach (var dot in dots)
+            if (dot != null)
+                dot.SetActive(false);
     }
 
 
-       // Update is called once per frame
+
+    // Update is called once per frame
     void Update()
     {
         
