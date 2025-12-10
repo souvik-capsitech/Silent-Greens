@@ -13,7 +13,7 @@ public class BallFallDetector : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void Update() 
     {
         if (transform.position.y < fallLimit)
         {
