@@ -709,6 +709,7 @@ Transform:
   - {fileID: 8716843693603713703}
   - {fileID: 1049474413037590093}
   - {fileID: 7358270962090761647}
+  - {fileID: 7088226411230276032}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3341555141782219906
@@ -971,6 +972,57 @@ Transform:
   - {fileID: 694497553158284228}
   m_Father: {fileID: 7272445150407492920}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4114489956959660065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7088226411230276032}
+  - component: {fileID: 4996438224481349052}
+  m_Layer: 0
+  m_Name: BirdSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7088226411230276032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4114489956959660065}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.0777197, y: -3.29297, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7272445150407492920}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4996438224481349052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4114489956959660065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde0539892df42c45a8258f0a84b42d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BirdSpawner
+  birdPrefabs:
+  - {fileID: 3846397330226159456, guid: c5fdbd720c0cd1e468679fd5c13a5e0c, type: 3}
+  - {fileID: 4908987931282651384, guid: f0f0221f6b77f7944b3b078ffef7d69a, type: 3}
+  spawnX: -12
+  minY: 1
+  maxY: 5
+  spawnInterval: 10
 --- !u!1 &4766209011888831103
 GameObject:
   m_ObjectHideFlags: 0
@@ -2715,12 +2767,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 7272445150407492920}
     m_Modifications:
     - target: {fileID: 422986296862521991, guid: 274b5fcaa56df9d468b1f0a9d520a72f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 422986296862521991, guid: 274b5fcaa56df9d468b1f0a9d520a72f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 422986296862521991, guid: 274b5fcaa56df9d468b1f0a9d520a72f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.34
+      value: 8.42
       objectReference: {fileID: 0}
     - target: {fileID: 422986296862521991, guid: 274b5fcaa56df9d468b1f0a9d520a72f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -4.7
       objectReference: {fileID: 0}
     - target: {fileID: 422986296862521991, guid: 274b5fcaa56df9d468b1f0a9d520a72f, type: 3}
       propertyPath: m_LocalPosition.z
