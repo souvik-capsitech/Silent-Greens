@@ -910,7 +910,7 @@ Transform:
   m_GameObject: {fileID: 3699303303633050516}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.051, y: -0.033, z: 0}
+  m_LocalPosition: {x: 0.051, y: -0.026, z: 0}
   m_LocalScale: {x: 0.7090738, y: 0.31992, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1526,8 +1526,8 @@ Transform:
   m_GameObject: {fileID: 6122083080818419346}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.053, y: 0.092, z: 0}
-  m_LocalScale: {x: 0.70482, y: 0.06948, z: 1}
+  m_LocalPosition: {x: 0.052, y: 0.109, z: 0}
+  m_LocalScale: {x: 0.7076429, y: 0.06948, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5765545956656090796}
@@ -1917,7 +1917,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7899965581592437817}
-  - component: {fileID: 222676967240875143}
   m_Layer: 3
   m_Name: Level_8
   m_TagString: Ground
@@ -1948,24 +1947,6 @@ Transform:
   - {fileID: 1403214868466606143}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &222676967240875143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7578839014141641556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d920f4f11ddda154baf1ea1af47222a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelSettings
-  enableZoom: 1
-  holeTransform: {fileID: 5765545956656090796}
-  zoomDistance: 2
-  cameraMinY: -10
-  cameraMaxY: 10
-  levelTimeOfDay: 0
 --- !u!1 &7730910873646034785
 GameObject:
   m_ObjectHideFlags: 0

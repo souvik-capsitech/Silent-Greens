@@ -18,7 +18,7 @@ MonoBehaviour:
   windDirection: {x: 1, y: 0}
   windStrength: 3
   showWindTutorial: 0
-  enableZoom: 1
+  enableZoom: 0
   zoomDistance: 2
   cameraMinY: -10
   cameraMaxY: 10

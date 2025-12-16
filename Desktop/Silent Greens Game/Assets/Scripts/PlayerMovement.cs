@@ -51,6 +51,13 @@ public class PlayerMovement : MonoBehaviour
     
     void Update()
     {
+        if (PauseManager.justResumed)
+        {
+            Input.ResetInputAxes();
+            return;
+        }
+
+
         if (Camera.main == null)
         {
             enabled = false;
@@ -109,10 +116,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetMouseButtonUp(0) && dragging)
-        {
+        if(!PauseManager.justResumed && Input.GetMouseButtonUp(0) && dragging)
+{
             FinishShot();
         }
+
 
         if (!ballStoppedAfterFirstShot &&
      firstHitDone &&
@@ -171,6 +179,18 @@ public class PlayerMovement : MonoBehaviour
         trajectory.Hide();
     }
 
+    public void CancelInputOnPause()
+    {
+        dragging = false;
+        //inputBlocked = true;
+
+        lr.positionCount = 0;
+        trajectory.Hide();
+
+        if (cancelButton != null)
+            cancelButton.gameObject.SetActive(false);
+    }
+
     public void CancelShot()
     {
         dragging = false;
@@ -200,7 +220,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.CompareTag("Water"))
         {
             //OopsPopUp.instance.oopsText.text = "Into the drink!";
-            OopsPopUp.instance.PlayOops();
+            //OopsPopUp.instance.PlayOops();
 
             StartCoroutine(LifeLoss());
         }
