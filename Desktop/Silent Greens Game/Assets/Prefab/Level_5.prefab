@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 223197615758865452}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 11.06, y: 3.53, z: 0}
-  m_LocalScale: {x: 0.90139997, y: 0.96713, z: 1}
+  m_LocalPosition: {x: 10.953, y: 3.354, z: 0}
+  m_LocalScale: {x: 0.43141, y: 0.46470597, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7120602329683772547}
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 0.5490196, b: 0, a: 1}
+  m_Color: {r: 0.8773585, g: 0.6776564, b: 0.43454075, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -155,8 +155,8 @@ Transform:
   m_GameObject: {fileID: 937391989823305147}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 0.02, z: 0}
-  m_LocalScale: {x: 0.70355, y: 0.2964594, z: 1}
+  m_LocalPosition: {x: 0.0418, y: 0.0246, z: 0}
+  m_LocalScale: {x: 0.6998915, y: 0.28726915, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2365475931080069845}
@@ -322,7 +322,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7120602329683772547}
-  - component: {fileID: -4576403967751546421}
   m_Layer: 0
   m_Name: Level_5
   m_TagString: Untagged
@@ -360,24 +359,6 @@ Transform:
   - {fileID: 3851363669657269168}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4576403967751546421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1297640530532296532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d920f4f11ddda154baf1ea1af47222a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelSettings
-  enableZoom: 1
-  holeTransform: {fileID: 2365475931080069845}
-  zoomDistance: 2
-  cameraMinY: 0
-  cameraMaxY: 0
-  levelTimeOfDay: 0
 --- !u!1 &2069018110392355207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,7 +1101,6 @@ GameObject:
   - component: {fileID: 2278882663965381760}
   - component: {fileID: 3702881142966957250}
   - component: {fileID: 8325574146409037103}
-  - component: {fileID: 424851750951422859}
   m_Layer: 4
   m_Name: Water3
   m_TagString: Water
@@ -1247,21 +1227,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 91.29, y: 16.894}
   m_EdgeRadius: 0
---- !u!114 &424851750951422859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4260345051209812256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82d4838756394ef419c0b2f3c2f4bcae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WaterWave
-  speed: 1
-  amplitude: 0.1
-  material: {fileID: 0}
 --- !u!1 &4732746238677613757
 GameObject:
   m_ObjectHideFlags: 0
@@ -6696,7 +6661,7 @@ Transform:
   m_GameObject: {fileID: 5774693316820664200}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0425, y: 0.1181, z: 0}
+  m_LocalPosition: {x: 0.046, y: 0.1181, z: 0}
   m_LocalScale: {x: 0.70989466, y: 0.10232301, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

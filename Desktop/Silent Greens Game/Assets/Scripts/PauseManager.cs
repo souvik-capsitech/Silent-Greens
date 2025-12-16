@@ -6,6 +6,7 @@ public class PauseManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public GameObject pausePanel;
+    public static bool justResumed;
     private bool isPaused = false;
     void Start()
     {
@@ -17,6 +18,7 @@ public class PauseManager : MonoBehaviour
         isPaused = true;
         pausePanel.SetActive(true);
         Time.timeScale = 0f;
+        FindAnyObjectByType<PlayerMovement>()?.CancelInputOnPause();
     }
 
     public void Resume()
@@ -24,6 +26,15 @@ public class PauseManager : MonoBehaviour
         isPaused = false;
         pausePanel.SetActive(false);
         Time.timeScale = 1f;
+        Input.ResetInputAxes();
+
+        justResumed = true;
+        Invoke(nameof(ClearResumeFlag), 0.1f);
+    }
+
+    void ClearResumeFlag()
+    {
+        justResumed = false;
     }
     public void Restart()
     {
@@ -35,7 +46,11 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
-
+    public void Levels()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("LevelSelect");
+    }
 
 
     // Update is called once per frame

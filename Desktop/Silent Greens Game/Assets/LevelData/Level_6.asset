@@ -16,7 +16,7 @@ MonoBehaviour:
   timeOfDay: 0
   windEnabled: 1
   windDirection: {x: 1, y: 0}
-  windStrength: 3
+  windStrength: 7
   showWindTutorial: 0
   enableZoom: 1
   zoomDistance: 2
