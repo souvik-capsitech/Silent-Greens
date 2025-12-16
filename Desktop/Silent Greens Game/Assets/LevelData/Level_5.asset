@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelPrefab: {fileID: 1297640530532296532, guid: 9722fd229bf4669489e7038fe577120c, type: 3}
   timeOfDay: 0
-  windEnabled: 0
+  windEnabled: 1
   windDirection: {x: 1, y: 0}
-  windStrength: 3
-  showWindTutorial: 0
+  windStrength: 6
+  showWindTutorial: 1
   enableZoom: 1
   zoomDistance: 2
   cameraMinY: -10

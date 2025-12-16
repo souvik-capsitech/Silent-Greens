@@ -6,6 +6,8 @@
       public GameObject gameOverPanel;
     public TMPro.TextMeshProUGUI finalScoreText;
     public TMPro.TextMeshProUGUI bestScoreText;
+    public GameObject pauseButton;
+
     public void PlayGame()
         {
             SceneManager.LoadScene("LevelSelect");
@@ -13,12 +15,17 @@
         public void RestartLevel()
         {
             Time.timeScale = 1f;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (pauseButton != null)
+            pauseButton.SetActive(true);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
     public void Home()
     {
         Time.timeScale = 1f;
+        if (pauseButton != null)
+            pauseButton.SetActive(true);
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -36,16 +43,28 @@
         Debug.Log(" Current Score: " + finalScoreText.text);
         Debug.Log(" Best Score: " + bestScoreText.text);
 
+
+        LevelManager lm = FindAnyObjectByType<LevelManager>();
+        if (lm != null)
+            LevelLoader.levelToLoad = lm.CurrentLevelIndex;
         gameOverPanel.SetActive(true);
-        //Time.timeScale = 0f;
+        if (pauseButton != null)
+            pauseButton.SetActive(false);
+
+        Time.timeScale = 0f;
     }
 
 
     public void QuitLevel()
     {
+        Time.timeScale = 1f;
+
+        if (pauseButton != null)
+            pauseButton.SetActive(true);
+
         SceneManager.LoadScene("LevelSelect");
     }
-        public void QuitGame()
+    public void QuitGame()
 
         {
             Debug.Log("Quit Game");

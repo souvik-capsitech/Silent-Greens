@@ -17,9 +17,24 @@ public class BackButtonHandler : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            ShowCancelPopup();
+            HandleBackButton();
         }
         
+    }
+    void HandleBackButton()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        if (sceneName == "GamePlay")
+        {
+          
+            if (!cancelPopUp.activeSelf)
+                ShowCancelPopup();
+        }
+        else if (sceneName == "LevelSelect")
+        {
+            QuitGame();
+        }
     }
 
     void ShowCancelPopup()
@@ -39,4 +54,16 @@ public class BackButtonHandler : MonoBehaviour
         cancelPopUp.SetActive(false);
         Time.timeScale = 1f;
     }
+
+    void QuitGame()
+    {
+        Debug.Log("Quit Game");
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+           Application.Quit();
+#endif
+    }
+
 }
