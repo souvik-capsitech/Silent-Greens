@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro; 
@@ -79,7 +79,7 @@ public class WindTutorialManager : MonoBehaviour
 
         while (elapsed < textFadeDuration)
         {
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;   
             float alpha = Mathf.Clamp01(elapsed / textFadeDuration);
             tutorialText.canvasRenderer.SetAlpha(alpha);
             yield return null;
@@ -88,7 +88,8 @@ public class WindTutorialManager : MonoBehaviour
         tutorialText.canvasRenderer.SetAlpha(1f);
     }
 
-  
+
+
     private IEnumerator TypewriterText()
     {
         tutorialText.gameObject.SetActive(true);
@@ -127,9 +128,22 @@ public class WindTutorialManager : MonoBehaviour
         tutorialText.gameObject.SetActive(false);
         currentTriangle = null;
 
-        Time.timeScale = 1f;
-
         PlayerPrefs.SetInt("WindTutorialShown", 1);
         PlayerPrefs.Save();
+
+       
+        Time.timeScale = 1f;
+
+       
+        PlayerMovement pm = FindAnyObjectByType<PlayerMovement>();
+        if (pm != null)
+        {
+            pm.CancelShot();            
+            pm.BlockInputForSeconds(0.2f); 
+        }
     }
+
+
+
+
 }
