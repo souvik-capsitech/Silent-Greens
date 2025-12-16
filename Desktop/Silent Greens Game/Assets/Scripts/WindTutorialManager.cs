@@ -29,6 +29,7 @@ public class WindTutorialManager : MonoBehaviour
     {
         if (triangle == null) return;
 
+        Time.timeScale = 0f;
         currentTriangle = triangle.transform;
 
         tutorialPanel.SetActive(true);
@@ -51,7 +52,8 @@ public class WindTutorialManager : MonoBehaviour
 
         while (elapsed < animationDuration)
         {
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
+
             float t = Mathf.Clamp01(elapsed / animationDuration);
 
             float size = Mathf.Lerp(startSize, endSize, t);
@@ -124,6 +126,8 @@ public class WindTutorialManager : MonoBehaviour
         spotlightCircle.gameObject.SetActive(false);
         tutorialText.gameObject.SetActive(false);
         currentTriangle = null;
+
+        Time.timeScale = 1f;
 
         PlayerPrefs.SetInt("WindTutorialShown", 1);
         PlayerPrefs.Save();
