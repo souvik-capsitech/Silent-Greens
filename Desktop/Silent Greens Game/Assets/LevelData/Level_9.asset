@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelPrefab: {fileID: 1012213401581402360, guid: de242684ef4c0b642ba12fa7bc49ea02, type: 3}
   timeOfDay: 0
-  windEnabled: 0
+  windEnabled: 1
   windDirection: {x: 1, y: 0}
-  windStrength: 3
+  windStrength: 10
   showWindTutorial: 0
   enableZoom: 1
   zoomDistance: 2

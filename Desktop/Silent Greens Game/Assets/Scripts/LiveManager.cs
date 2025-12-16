@@ -11,29 +11,37 @@ public class LiveManager : MonoBehaviour
     public Image[] lifeIcons;
     public Sprite lifeOnSprite;
     public Sprite lifeOffSprite;
+    private float lifeCooldown = 0f;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        currentLives = maxLives;
+        if (currentLives <= 0)
+            currentLives = maxLives;
+
         UpdateLifeUI();
     }
 
 
     public void LoseLife()
     {
+        if (lifeCooldown > 0f)
+            return;
+
+        if (PauseManager.justResumed)
+            return;
+
+        lifeCooldown = 0.75f; // block repeated hits
+
         currentLives--;
 
         int index = Mathf.Clamp(currentLives, 0, lifeIcons.Length - 1);
 
-      
         if (currentLives <= 0)
         {
-         
             lifeIcons[index].sprite = lifeOffSprite;
-
-         
             GameOver();
             return;
         }
@@ -41,10 +49,10 @@ public class LiveManager : MonoBehaviour
         OopsPopUp.instance.PlayOops();
         StartCoroutine(AnimateLifeLoss(index));
 
-        Time.timeScale = 1f;
         var levelManager = FindFirstObjectByType<LevelManager>();
         levelManager.LoadLevel(levelManager.CurrentLevelIndex);
     }
+
 
 
 
@@ -97,6 +105,8 @@ public class LiveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (lifeCooldown > 0f)
+            lifeCooldown -= Time.unscaledDeltaTime;
     }
+
 }
