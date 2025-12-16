@@ -285,4 +285,28 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    public void BlockInputForSeconds(float seconds)
+{
+    StartCoroutine(BlockInputRoutine(seconds));
+}
+
+private IEnumerator BlockInputRoutine(float seconds)
+{
+    inputBlocked = true;
+    dragging = false;
+
+    lr.positionCount = 0;
+    trajectory.Hide();
+
+    float t = 0f;
+    while (t < seconds)
+    {
+        t += Time.unscaledDeltaTime;
+        yield return null;
+    }
+
+    inputBlocked = false;
+}
+
+
 }

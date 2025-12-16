@@ -39,6 +39,9 @@ public class PauseManager : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1f;
+        LevelManager lm = FindAnyObjectByType<LevelManager>();
+        if (lm != null)
+            LevelLoader.levelToLoad = lm.CurrentLevelIndex;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void Home()
