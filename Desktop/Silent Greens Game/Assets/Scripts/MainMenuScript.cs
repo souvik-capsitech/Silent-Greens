@@ -7,8 +7,12 @@ public class MainMenuScript : MonoBehaviour
     public GameObject optionsPanel;
     public GameObject continueBtn;
     public GameObject playBtn;
+
+    public AudioClip music;
     void Start()
     {
+
+        SoundManager.Instance.PlayMusic(music);
         optionsPanel.SetActive(false);
         int last = PlayerPrefs.GetInt("LastUnlockedLevel", 0);
 

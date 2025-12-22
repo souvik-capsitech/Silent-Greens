@@ -6767,10 +6767,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468a5ef6f927cb340a8067fdc60e9961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FitCameraToGround
-  ground: {fileID: 0}
-  topPadding: 3
-  bottomPadding: 1
-  horizontalOffset: 0
+  referenceScreenWidth: 1080
+  referenceOrthoSize: 5
+  maxOrthoSize: 12
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6780,19 +6779,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f071a2077e457b2469ca3de09fbf64ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aca1fce2e1afde47be731677a7e38c0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraZoom
-  cam: {fileID: 519420031}
-  defaultSize: 5
-  zoomSize: 3
-  zoomSpeed: 2
-  zoomDistance: 2
-  zoomYOffset: 1
-  ball: {fileID: 626650539}
-  hole: {fileID: 7272445150407492920, guid: 28dd023bce604b14a98175e37808d969, type: 3}
-  minY: -10
-  maxY: 0
+  m_EditorClassIdentifier: Assembly-CSharp::CameraOrthoWatcher
 --- !u!1 &527224941
 GameObject:
   m_ObjectHideFlags: 0
@@ -8997,8 +8986,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 35.996407, y: -67}
-  m_SizeDelta: {x: 2141.68, y: 1096.7046}
+  m_AnchoredPosition: {x: 19.499603, y: 18.823853}
+  m_SizeDelta: {x: 2387.6008, y: 1268.3523}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1487714370
 MonoBehaviour:

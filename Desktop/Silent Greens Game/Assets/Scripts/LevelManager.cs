@@ -77,31 +77,31 @@ public class LevelManager : MonoBehaviour
      
    
 
-        CameraZoom camZoom = FindAnyObjectByType<CameraZoom>();
+        ////CameraZoom camZoom = FindAnyObjectByType<CameraZoom>();
 
-        if (camZoom != null)
-        {
-            camZoom.ResetCamera();
+        //if (camZoom != null)
+        //{
+        //    //camZoom.ResetCamera();
 
-            if (data.enableZoom)
-            {
-                Transform hole = currentPrefabInstance.transform.Find("Hole");
+        //    if (data.enableZoom)
+        //    {
+        //        Transform hole = currentPrefabInstance.transform.Find("Hole");
 
-                if (hole == null)
-                    Debug.LogError("Hole not found in prefab: " + data.levelPrefab.name);
+        //        if (hole == null)
+        //            Debug.LogError("Hole not found in prefab: " + data.levelPrefab.name);
 
-                camZoom.ball = ball.transform;
-                camZoom.hole = hole;
-                camZoom.zoomDistance = data.zoomDistance;
-                camZoom.minY = data.cameraMinY;
-                camZoom.maxY = data.cameraMaxY;
-            }
-            else
-            {
-                camZoom.ball = null;
-                camZoom.hole = null;
-            }
-        }
+        //        camZoom.ball = ball.transform;
+        //        camZoom.hole = hole;
+        //        camZoom.zoomDistance = data.zoomDistance;
+        //        camZoom.minY = data.cameraMinY;
+        //        camZoom.maxY = data.cameraMaxY;
+        //    }
+        //    else
+        //    {
+        //        camZoom.ball = null;
+        //        camZoom.hole = null;
+        //    }
+        //}
 
 
         tutorialRoot.SetActive(index == 0 && !TutorialManager.IsTutorialShown);
