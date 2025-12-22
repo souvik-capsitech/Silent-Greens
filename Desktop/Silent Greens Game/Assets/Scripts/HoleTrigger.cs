@@ -5,11 +5,11 @@ public class Hole : MonoBehaviour
 {
     public Transform coin;
     public bool zoomThisLevel = false;
-    private CameraZoom camZoom;
+    //private CameraZoom camZoom;
 
     void Start()
     {
-        camZoom = Camera.main.GetComponent<CameraZoom>();
+        //camZoom = Camera.main.GetComponent<CameraZoom>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
