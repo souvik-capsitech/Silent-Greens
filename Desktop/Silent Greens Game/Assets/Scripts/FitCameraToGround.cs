@@ -44,22 +44,30 @@ public class DynamicCameraFit : MonoBehaviour
         if (cam == null)
             cam = Camera.main;
 
-        float shortSide = Mathf.Min(Screen.width, Screen.height);
+        int w = Screen.width;
+        int h = Screen.height;
 
+      
+        if ((w == 2732 && h == 2048) || (w == 2048 && h == 2732))
+        {
+            cam.orthographicSize = 7.32f;
+            Debug.Log($"[DynamicCameraFit] {caller} | iPad Pro 12.9 (2018) → Forced size 7.32");
+            return;
+        }
+
+        float shortSide = Mathf.Min(w, h);
         float ratio = shortSide / referenceScreenWidth;
         float calculatedSize = referenceOrthoSize * ratio;
-
         calculatedSize = Mathf.Clamp(calculatedSize, referenceOrthoSize, maxOrthoSize);
+
+        cam.orthographicSize = calculatedSize;
 
         Debug.Log(
             $"[DynamicCameraFit] {caller} | " +
-            $"Screen={Screen.width}x{Screen.height}, " +
-            $"ShortSide={shortSide}, " +
-            $"Ratio={ratio:F3}, " +
-            $"Final={calculatedSize:F3}"
+            $"Screen={w}x{h}, ShortSide={shortSide}, " +
+            $"Ratio={ratio:F3}, Final={calculatedSize:F3}"
         );
-
-        cam.orthographicSize = calculatedSize;
     }
+
 
 }
