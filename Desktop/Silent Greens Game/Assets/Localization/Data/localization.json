@@ -1,0 +1,17 @@
+{
+  "PLAY": {
+    "en": "Play",
+    "pt-BR": "Jogar",
+    "id": "Main"
+  },
+  "SETTINGS": {
+    "en": "Settings",
+    "pt-BR": "Configurações",
+    "id": "Pengaturan"
+  },
+  "WELCOME_MSG": {
+    "en": "Welcome to the game!",
+    "pt-BR": "Bem-vindo ao jogo!",
+    "id": "Selamat datang di game!"
+  }
+}
