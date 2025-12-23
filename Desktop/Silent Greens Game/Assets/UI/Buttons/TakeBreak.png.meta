@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 6c7388ca02f896941850d263240259b0
+guid: 1f010488a8def464d87e3c8ac11379a6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3657310415271551953
-    second: HighscoreTxt_0
-  - first:
-      213: -1165093990068027569
-    second: HighscoreTxt_1
-  - first:
-      213: -8318070959924874357
-    second: HighscoreTxt_2
+      213: 9063181841650644702
+    second: TakeBreak_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 5847, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -132,67 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HighscoreTxt_0
+      name: TakeBreak_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 492
-        width: 1947
-        height: 1031
+        y: 0
+        width: 11654
+        height: 3231
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f2c1768fd8f9e3dc0800000000000000
-      internalID: -3657310415271551953
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HighscoreTxt_1
-      rect:
-        serializedVersion: 2
-        x: 2188
-        y: 669
-        width: 2901
-        height: 818
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f4f7d006031c4dfe0800000000000000
-      internalID: -1165093990068027569
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HighscoreTxt_2
-      rect:
-        serializedVersion: 2
-        x: 6099
-        y: 270
-        width: 5022
-        height: 1679
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b837f217886409c80800000000000000
-      internalID: -8318070959924874357
+      spriteID: ed67b5ebdd3e6cd70800000000000000
+      internalID: 9063181841650644702
       vertices: []
       indices: 
       edges: []
@@ -202,7 +152,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -211,9 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HighscoreTxt_0: -3657310415271551953
-      HighscoreTxt_1: -1165093990068027569
-      HighscoreTxt_2: -8318070959924874357
+      TakeBreak_0: 9063181841650644702
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

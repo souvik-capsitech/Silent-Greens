@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
@@ -34,7 +34,11 @@ public class LocalizationManager : MonoBehaviour
             JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(
                 localizationJson.text
             );
+
+      
+        currentLangCode = PlayerPrefs.GetString("LANGUAGE_CODE", "en");
     }
+
     public void SetEnglish() => SetLanguage("en");
     public void SetPortuguese() => SetLanguage("pt-BR");
     public void SetIndonesian() => SetLanguage("id");
@@ -60,8 +64,14 @@ public class LocalizationManager : MonoBehaviour
             return;
 
         currentLangCode = langCode;
+
+      
+        PlayerPrefs.SetString("LANGUAGE_CODE", langCode);
+        PlayerPrefs.Save();
+
         OnLanguageChanged?.Invoke();
     }
+
 
     public string GetText(string key)
     {

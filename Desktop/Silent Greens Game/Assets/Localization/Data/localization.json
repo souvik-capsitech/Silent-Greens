@@ -5,7 +5,7 @@
     "id": "Main"
   },
   "SETTINGS": {
-    "en": "Settings",
+    "en": "SETTINGS",
     "pt-BR": "Configurações",
     "id": "Pengaturan"
   },
@@ -13,5 +13,97 @@
     "en": "Welcome to the game!",
     "pt-BR": "Bem-vindo ao jogo!",
     "id": "Selamat datang di game!"
+  },
+
+  "CHOOSE_LANG":
+  {
+    "en": "Choose your language",
+    "pt-BR": "Escolha seu idioma",
+    "id": "Pilih bahasa"
+  },
+
+   "NEW_GAME": {
+    "en": "NEW GAME",
+    "pt-BR": "Novo Jogo",
+    "id": "Permainan Baru"
+  },
+  "CONTINUE": {
+    "en": "CONTINUE",
+    "pt-BR": "Continuar",
+    "id": "Lanjutkan"
+  },
+
+  
+  "OOPS": {
+    "en": "Oops!",
+    "pt-BR": "Ops!",
+    "id": "Ups!"
+  },
+
+  
+  "WIND_TUTORIAL": {
+    "en": "Watch out! The arrow shows the direction of wind.\nThe wind can push your ball off course.",
+    "pt-BR": "Cuidado! A seta mostra a direção do vento.\nO vento pode empurrar sua bola para fora do caminho.",
+    "id": "Hati-hati! Panah menunjukkan arah angin.\nAngin dapat mendorong bola Anda keluar jalur."
+  },
+
+
+  
+  "ALL_LEVELS_COMPLETE": {
+    "en": "Hurray! You have completed all the levels!!!",
+    "pt-BR": "Oba! Você completou todos os níveis!!!",
+    "id": "Hore! Kamu telah menyelesaikan semua level!!!"
+  },
+
+  "SCORE": {
+    "en": "Score",
+    "pt-BR": "Pontuação",
+    "id": "Skor"
+  },
+  "HIGH_SCORE": {
+    "en": "High Score",
+    "pt-BR": "Recorde",
+    "id": "Skor Tertinggi"
+  },
+  "TRY_AGAIN": {
+    "en": "Try Again",
+    "pt-BR": "Tentar Novamente",
+    "id": "Coba Lagi"
+  },
+  "TAKE_A_BREAK": {
+    "en": "Take a Break",
+    "pt-BR": "Faça uma Pausa",
+    "id": "Istirahat Sejenak"
+  },
+  "YES": {
+    "en": "Yes",
+    "pt-BR": "Sim",
+    "id": "Ya"
+  },
+  "NO": {
+    "en": "No",
+    "pt-BR": "Não",
+    "id": "Tidak"
+  },
+  "CANCEL_SHOT": {
+    "en": "Cancel Shot",
+    "pt-BR": "Cancelar Jogada",
+    "id": "Batalkan Tembakan"
+  },
+  "CONFIRM_QUIT": {
+    "en": "Are you sure you want to quit?",
+    "pt-BR": "Tem certeza de que deseja sair?",
+    "id": "Apakah kamu yakin ingin keluar?"
+  },
+
+  "RESUME": {
+    "en": "Resume",
+    "pt-BR": "Retomar",
+    "id": "Lanjutkan"
+  },
+  "COMBO": {
+    "en": "Combo",
+    "pt-BR": "Combo",
+    "id": "Kombo"
   }
 }

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
@@ -6,7 +6,7 @@ public class PauseManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public GameObject pausePanel;
-    public static bool justResumed;
+    //public static bool justResumed;
     private bool isPaused = false;
     void Start()
     {
@@ -26,16 +26,21 @@ public class PauseManager : MonoBehaviour
         isPaused = false;
         pausePanel.SetActive(false);
         Time.timeScale = 1f;
+
         Input.ResetInputAxes();
 
-        justResumed = true;
-        Invoke(nameof(ClearResumeFlag), 0.1f);
+        PlayerMovement pm = FindAnyObjectByType<PlayerMovement>();
+        if (pm != null)
+        {
+            pm.OnGameResumed(); 
+        }
     }
 
-    void ClearResumeFlag()
-    {
-        justResumed = false;
-    }
+
+    //void ClearResumeFlag()
+    //{
+    //    justResumed = false;
+    //}
     public void Restart()
     {
         Time.timeScale = 1f;

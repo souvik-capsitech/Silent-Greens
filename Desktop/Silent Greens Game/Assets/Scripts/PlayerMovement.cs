@@ -51,12 +51,7 @@ public class PlayerMovement : MonoBehaviour
     
     void Update()
     {
-        if (PauseManager.justResumed)
-        {
-            Input.ResetInputAxes();
-            return;
-        }
-
+   
 
         if (Camera.main == null)
         {
@@ -116,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if(!PauseManager.justResumed && Input.GetMouseButtonUp(0) && dragging)
+        if(Input.GetMouseButtonUp(0) && dragging)
 {
             FinishShot();
         }
@@ -144,7 +139,28 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
- 
+    public void OnGameResumed()
+    {
+        dragging = false;
+        inputBlocked = true;
+
+        lr.positionCount = 0;
+        trajectory.Hide();
+
+        if (cancelButton != null)
+            cancelButton.gameObject.SetActive(false);
+
+        Input.ResetInputAxes();
+        StartCoroutine(UnblockNextFrame());
+    }
+
+    IEnumerator UnblockNextFrame()
+    {
+        yield return null;
+        inputBlocked = false;
+    }
+
+
 
     void FinishShot()
     {
