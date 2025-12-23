@@ -53,7 +53,7 @@ public class DynamicCameraFit : MonoBehaviour
     
         if ((w == 2732 && h == 2048) || (w == 2048 && h == 2732))
         {
-            cam.orthographicSize = 7.32f;
+            cam.orthographicSize = 7.57f;
             Debug.Log($"[DynamicCameraFit] {caller} | iPad Pro 12.9 → 7.32");
             return;
         }
@@ -66,7 +66,7 @@ public class DynamicCameraFit : MonoBehaviour
             return;
         }
 
-       
+        // Fallback (dynamic)
         float shortSide = Mathf.Min(w, h);
         float ratio = shortSide / referenceScreenWidth;
         float calculatedSize = referenceOrthoSize * ratio;
