@@ -9483,7 +9483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -583, y: 203.3}
+  m_AnchoredPosition: {x: -366, y: 203.3}
   m_SizeDelta: {x: 860.2268, y: 406.5931}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1435270348
@@ -9506,7 +9506,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'Watch out! The arrow shows the direction of wind.The wind can push your
+    ball off course.
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b9e99a7b4ff2a2647bcacfed60a928bc, type: 2}
   m_sharedMaterial: {fileID: 6838372476427309433, guid: b9e99a7b4ff2a2647bcacfed60a928bc, type: 2}
