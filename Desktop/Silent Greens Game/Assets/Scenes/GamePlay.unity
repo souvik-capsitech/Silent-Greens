@@ -12013,6 +12013,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1918455840}
     - target: {fileID: 6148359828268938270, guid: 145ab31fd0fe9a744ace3c7781609ef1, type: 3}
+      propertyPath: hitBallSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: cffee6d704fd9c64d823748c09490992, type: 3}
+    - target: {fileID: 6148359828268938270, guid: 145ab31fd0fe9a744ace3c7781609ef1, type: 3}
       propertyPath: trajectory
       value: 
       objectReference: {fileID: 1849708204}

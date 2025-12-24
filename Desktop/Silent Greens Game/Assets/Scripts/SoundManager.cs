@@ -5,7 +5,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance;
 
     public AudioSource musicSource;
-    //public AudioSource sfxSource;
+    public AudioSource sfxSource;
 
     void Awake()
     {
@@ -30,7 +30,8 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySFX(AudioClip clip)
     {
-        //sfxSource.PlayOneShot(clip);
+        if(clip == null) return;    
+        sfxSource.PlayOneShot(clip);
     }
 
     public void ToggleMusic(bool isOn)
@@ -40,6 +41,6 @@ public class SoundManager : MonoBehaviour
 
     public void ToggleSFX(bool isOn)
     {
-        //sfxSource.mute = !isOn;
+        sfxSource.mute = !isOn;
     }
 }
