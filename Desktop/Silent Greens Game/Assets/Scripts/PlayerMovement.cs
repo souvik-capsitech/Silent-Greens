@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     public Button cancelButton;
     public float cancelTriggerPercent = 0.15f;
 
+    public AudioClip hitBallSFX;
+
     WindManager windManager;
 
     void Start()
@@ -180,6 +182,11 @@ public class PlayerMovement : MonoBehaviour
         if (rb.linearVelocity.magnitude <= 0.5f)
         {
             rb.AddForce(clampedForce, ForceMode2D.Impulse);
+
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.PlaySFX(hitBallSFX);
+            }
 
             if (!firstHitDone)
             {
