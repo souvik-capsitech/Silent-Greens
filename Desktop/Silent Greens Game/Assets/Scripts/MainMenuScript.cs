@@ -7,8 +7,13 @@ public class MainMenuScript : MonoBehaviour
     public GameObject optionsPanel;
     public GameObject continueBtn;
     public GameObject playBtn;
+    public GameObject settingsPanel;
+
+    public AudioClip music;
     void Start()
     {
+
+        SoundManager.Instance.PlayMusic(music);
         optionsPanel.SetActive(false);
         int last = PlayerPrefs.GetInt("LastUnlockedLevel", 0);
 
@@ -20,6 +25,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void OnPlayButton()
     {
+        settingsPanel.SetActive(false);
         optionsPanel.SetActive(true);
         playBtn.SetActive(false);
 
@@ -42,6 +48,8 @@ public class MainMenuScript : MonoBehaviour
 
      public void OnSettings()
     {
+        settingsPanel.SetActive(true);
+        
     
         Debug.Log("Settings Opened");
     }

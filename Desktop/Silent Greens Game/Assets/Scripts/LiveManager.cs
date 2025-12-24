@@ -30,8 +30,7 @@ public class LiveManager : MonoBehaviour
         if (lifeCooldown > 0f)
             return;
 
-        if (PauseManager.justResumed)
-            return;
+    
 
         lifeCooldown = 0.75f; // block repeated hits
 

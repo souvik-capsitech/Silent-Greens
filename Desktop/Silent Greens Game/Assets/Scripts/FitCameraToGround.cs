@@ -1,41 +1,84 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DynamicCameraFit : MonoBehaviour
 {
-    public SpriteRenderer ground;
-    public float topPadding = 3f;  
-    public float bottomPadding = 1f;
-    public float horizontalOffset = 0f;
+    public float referenceScreenWidth = 1080f;
+    public float referenceOrthoSize = 5f;
+    public float maxOrthoSize = 12f;
+
+    private Camera cam;
+
+    void Awake()
+    {
+        cam = Camera.main;
+        Debug.Log($"[DynamicCameraFit] Awake | Screen: {Screen.width}x{Screen.height}");
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        Debug.Log("[DynamicCameraFit] OnEnable");
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        Debug.Log("[DynamicCameraFit] OnDisable");
+    }
 
     void Start()
     {
-        AdjustCamera();
+        Debug.Log("[DynamicCameraFit] Start");
+        ApplyCameraSize("Start");
     }
 
-    void AdjustCamera()
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (ground == null) return;
+        Debug.Log($"[DynamicCameraFit] SceneLoaded: {scene.name}");
+        ApplyCameraSize("SceneLoaded");
+    }
 
-        Camera cam = Camera.main;
+    void ApplyCameraSize(string caller)
+    {
+        if (cam == null)
+            cam = Camera.main;
 
-        float screenAspect = (float)Screen.width / Screen.height;
+        int w = Screen.width;
+        int h = Screen.height;
 
-       
-        float groundWidth = ground.bounds.size.x;
-
-       
-        float sizeForWidth = groundWidth / (2f * screenAspect);
-
-       
-        cam.orthographicSize = sizeForWidth;
-
-        Vector3 pos = cam.transform.position;
-        pos.x = ground.transform.position.x + horizontalOffset;
+        float aspect = (float)w / h;
+        if (aspect < 1f) aspect = 1f / aspect;
 
     
-        pos.y = ground.bounds.min.y + cam.orthographicSize + bottomPadding;
+        if ((w == 2732 && h == 2048) || (w == 2048 && h == 2732))
+        {
+            cam.orthographicSize = 7.57f;
+            Debug.Log($"[DynamicCameraFit] {caller} | iPad Pro 12.9 → 7.32");
+            return;
+        }
 
-        cam.transform.position = pos;
+       
+        if (Mathf.Abs(aspect - (16f / 9f)) < 0.02f)
+        {
+            cam.orthographicSize = 5.9f;
+            Debug.Log($"[DynamicCameraFit] {caller} | 16:9 → 5.9");
+            return;
+        }
+
+        // Fallback (dynamic)
+        float shortSide = Mathf.Min(w, h);
+        float ratio = shortSide / referenceScreenWidth;
+        float calculatedSize = referenceOrthoSize * ratio;
+        calculatedSize = Mathf.Clamp(calculatedSize, referenceOrthoSize, maxOrthoSize);
+
+        cam.orthographicSize = calculatedSize;
+
+        Debug.Log(
+            $"[DynamicCameraFit] {caller} | Screen={w}x{h}, Aspect={aspect:F3}, Final={calculatedSize:F3}"
+        );
     }
+
+
 
 }

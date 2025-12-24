@@ -147,10 +147,10 @@ TextureImporter:
       name: Land17_0
       rect:
         serializedVersion: 2
-        x: 2817
-        y: 1121
-        width: 445
-        height: 116
+        x: 5635
+        y: 3875
+        width: 888
+        height: 230
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: Land17_1
       rect:
         serializedVersion: 2
-        x: 2204
-        y: 755
-        width: 445
-        height: 117
+        x: 4409
+        y: 3143
+        width: 888
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: Land17_2
       rect:
         serializedVersion: 2
-        x: 3400
-        y: 755
-        width: 445
-        height: 117
+        x: 6995
+        y: 3143
+        width: 888
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,8 +215,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1263
-        height: 435
+        width: 2548
+        height: 2499
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,10 +235,10 @@ TextureImporter:
       name: Land17_4
       rect:
         serializedVersion: 2
-        x: 2817
-        y: 422
-        width: 445
-        height: 117
+        x: 5739
+        y: 2477
+        width: 888
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,10 +257,10 @@ TextureImporter:
       name: Land17_5
       rect:
         serializedVersion: 2
-        x: 2107
-        y: 169
-        width: 445
-        height: 117
+        x: 4215
+        y: 2013
+        width: 888
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,10 +279,10 @@ TextureImporter:
       name: Land17_6
       rect:
         serializedVersion: 2
-        x: 3548
-        y: 169
-        width: 444
-        height: 117
+        x: 7097
+        y: 1971
+        width: 887
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

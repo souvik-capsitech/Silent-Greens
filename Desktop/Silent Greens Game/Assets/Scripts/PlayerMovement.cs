@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     public Button cancelButton;
     public float cancelTriggerPercent = 0.15f;
 
+    public AudioClip hitBallSFX;
+
     WindManager windManager;
 
     void Start()
@@ -51,12 +53,7 @@ public class PlayerMovement : MonoBehaviour
     
     void Update()
     {
-        if (PauseManager.justResumed)
-        {
-            Input.ResetInputAxes();
-            return;
-        }
-
+   
 
         if (Camera.main == null)
         {
@@ -116,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if(!PauseManager.justResumed && Input.GetMouseButtonUp(0) && dragging)
+        if(Input.GetMouseButtonUp(0) && dragging)
 {
             FinishShot();
         }
@@ -144,7 +141,28 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
- 
+    public void OnGameResumed()
+    {
+        dragging = false;
+        inputBlocked = true;
+
+        lr.positionCount = 0;
+        trajectory.Hide();
+
+        if (cancelButton != null)
+            cancelButton.gameObject.SetActive(false);
+
+        Input.ResetInputAxes();
+        StartCoroutine(UnblockNextFrame());
+    }
+
+    IEnumerator UnblockNextFrame()
+    {
+        yield return null;
+        inputBlocked = false;
+    }
+
+
 
     void FinishShot()
     {
@@ -164,6 +182,11 @@ public class PlayerMovement : MonoBehaviour
         if (rb.linearVelocity.magnitude <= 0.5f)
         {
             rb.AddForce(clampedForce, ForceMode2D.Impulse);
+
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.PlaySFX(hitBallSFX);
+            }
 
             if (!firstHitDone)
             {
