@@ -1773,9 +1773,9 @@ GameObject:
   - component: {fileID: 7420299598938472926}
   - component: {fileID: 6434023313675726466}
   - component: {fileID: 6912229132394167447}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: Water
-  m_TagString: Water
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1789,7 +1789,7 @@ Transform:
   m_GameObject: {fileID: 6347561737478812031}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.3475, y: -7.7176, z: 0}
+  m_LocalPosition: {x: 4.3475, y: -11.02, z: 0}
   m_LocalScale: {x: 0.39499772, y: 0.45926064, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
