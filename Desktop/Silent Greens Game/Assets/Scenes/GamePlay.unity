@@ -6889,7 +6889,7 @@ Camera:
   far clip plane: 4982.66
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6933,7 +6933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FitCameraToGround
   referenceScreenWidth: 1080
-  referenceOrthoSize: 5
+  referenceOrthoSize: 7
   maxOrthoSize: 12
 --- !u!114 &519420034
 MonoBehaviour:
