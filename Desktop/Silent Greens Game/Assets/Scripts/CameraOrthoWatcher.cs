@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraOrthoWatcher : MonoBehaviour
 {
@@ -6,7 +7,11 @@ public class CameraOrthoWatcher : MonoBehaviour
 
     void LateUpdate()
     {
+      
         if (Camera.main == null) return;
+
+        //if (GameManager.levelIndex != 19)
+        //    return;
 
         float current = Camera.main.orthographicSize;
 
