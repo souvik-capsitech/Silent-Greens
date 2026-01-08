@@ -78,15 +78,24 @@ public class DynamicCameraFit : MonoBehaviour
     //        $"[DynamicCameraFit] {caller} | Screen={w}x{h}, Aspect={aspect:F3}, Final={calculatedSize:F3}"
     //    );
     //}
-    
+
+
 
     void ApplyCameraSize(string caller)
     {
         if (cam == null)
             cam = Camera.main;
 
+
      
-    
+        LevelCameraOverride overrideData = FindFirstObjectByType<LevelCameraOverride>();
+        if (overrideData != null)
+        {
+            cam.orthographicSize = overrideData.forcedOrthoSize;
+            Debug.Log($"[DynamicCameraFit] {caller} | Level prefab override → Ortho = {overrideData.forcedOrthoSize}");
+            return;
+        }
+
 
         int w = Screen.width;
         int h = Screen.height;
@@ -94,28 +103,32 @@ public class DynamicCameraFit : MonoBehaviour
         float aspect = (float)w / h;
         if (aspect < 1f) aspect = 1f / aspect;
 
-        // iPad Pro 12.9
         if ((w == 2732 && h == 2048) || (w == 2048 && h == 2732))
         {
             cam.orthographicSize = 7.57f;
+            Debug.Log($"[DynamicCameraFit] {caller} | iPad Pro 12.9 → 7.57");
             return;
         }
 
-        // 16:9
         if (Mathf.Abs(aspect - (16f / 9f)) < 0.02f)
         {
-            cam.orthographicSize = 7.2f;
+            cam.orthographicSize = 5.9f;
+            Debug.Log($"[DynamicCameraFit] {caller} | 16:9 → 5.9");
             return;
         }
 
-        
         float shortSide = Mathf.Min(w, h);
         float ratio = shortSide / referenceScreenWidth;
         float calculatedSize = referenceOrthoSize * ratio;
         calculatedSize = Mathf.Clamp(calculatedSize, referenceOrthoSize, maxOrthoSize);
 
         cam.orthographicSize = calculatedSize;
+
+        Debug.Log(
+            $"[DynamicCameraFit] {caller} | Screen={w}x{h}, Aspect={aspect:F3}, Final={calculatedSize:F3}"
+        );
     }
+
 
 
 
