@@ -10,8 +10,6 @@ public class CameraOrthoWatcher : MonoBehaviour
       
         if (Camera.main == null) return;
 
-        //if (GameManager.levelIndex != 19)
-        //    return;
 
         float current = Camera.main.orthographicSize;
 

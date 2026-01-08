@@ -331,6 +331,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2251474605262285130}
+  - component: {fileID: -1548798336696461278}
   m_Layer: 0
   m_Name: Level_20
   m_TagString: Untagged
@@ -371,6 +372,19 @@ Transform:
   - {fileID: 2372261017131598632}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1548798336696461278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834986975033331573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca54cf6edb39d9949ae00457b3659844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelCameraOverride
+  forcedOrthoSize: 8.04
 --- !u!1 &836888696653935358
 GameObject:
   m_ObjectHideFlags: 0
