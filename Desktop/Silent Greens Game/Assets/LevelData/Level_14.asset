@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level_14
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelPrefab: {fileID: 1012213401581402360, guid: 2dafeb08484b6554f8d9448848ed6b69, type: 3}
-  timeOfDay: 1
+  timeOfDay: 0
   windEnabled: 0
   windDirection: {x: 1, y: 0}
   windStrength: 3
