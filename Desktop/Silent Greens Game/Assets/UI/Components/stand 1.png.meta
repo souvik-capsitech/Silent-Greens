@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 964d43cd82ac46144a3791abe9080fcd
+guid: dde50d8ec735fe647b570ab7b04cdc61
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2023296549677036360
-    second: L17 HArd_0
+      213: -3143155809444071264
+    second: stand 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: L17 HArd_0
+      name: stand 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1646
-        height: 1501
+        width: 5104
+        height: 8547
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8bc0a39028ecbe3e0800000000000000
-      internalID: -2023296549677036360
+      spriteID: 0a87168c1744164d0800000000000000
+      internalID: -3143155809444071264
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      L17 HArd_0: -2023296549677036360
+      stand 1_0: -3143155809444071264
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
