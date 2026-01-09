@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -603576716845549570
     second: L16 hard_0
+  - first:
+      213: 3300466195270059608
+    second: L16 hard_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -131,8 +134,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1178
-        height: 1203
+        width: 1175
+        height: 1200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,6 +146,28 @@ TextureImporter:
       bones: []
       spriteID: ef779b58c2aaf97f0800000000000000
       internalID: -603576716845549570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: L16 hard_1
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 222
+        width: 776
+        height: 978
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 856c14a948c9dcd20800000000000000
+      internalID: 3300466195270059608
       vertices: []
       indices: 
       edges: []
@@ -162,6 +187,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       L16 hard_0: -603576716845549570
+      L16 hard_1: 3300466195270059608
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
