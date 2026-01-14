@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1b17bd1f23be13046a157369fa02cc11
+guid: 7803b8c1502db694387c4e9136f8bbb4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1944834512725752052
-    second: ResumeBtn_0
+      213: -4558846155265381309
+    second: Rectangle 52_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,30 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ResumeBtn_0
+      name: Rectangle 52_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 5844
-        height: 2546
+        width: 5760
+        height: 2476
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c07cf0a905f8205e0800000000000000
-      internalID: -1944834512725752052
+      spriteID: 34c60c95399bbb0c0800000000000000
+      internalID: -4558846155265381309
       vertices: []
       indices: 
       edges: []
@@ -161,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ResumeBtn_0: -1944834512725752052
+      Rectangle 52_0: -4558846155265381309
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
