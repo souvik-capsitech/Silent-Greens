@@ -139,7 +139,7 @@ public class WindTutorialManager : MonoBehaviour
         if (pm != null)
         {
             pm.CancelShot();            
-            pm.BlockInputForSeconds(0.2f); 
+            //pm.BlockInputForSeconds(0.2f); 
         }
     }
 
