@@ -5,54 +5,47 @@ using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Shot Settings")]
     public float maxDrag = 4f;
     public float power = 8f;
-    public float dragThresholdPixels = 25f; 
+    public float dragThresholdPixels = 25f;   // ✅ NEW (tap protection)
 
-    [Header("References")]
     public Rigidbody2D rb;
     public LineRenderer lr;
     public Trajectory trajectory;
+    Vector3 dragStartPos;
+    bool dragging = false;
+    bool pointerDown = false;
+
     public ParticleSystem impactEffect;
-    public TrailRenderer trail;
     public RectTransform cancelButtonRect;
-    public Button cancelButton;
+    public FingerTrajectoryTutorial tutorial;
+    public int shotsUsed = 0;
+
+    private bool firstHitDone = false;
+    private bool hasShot = false;
+    private bool inputBlocked = false;
+
+    public TrailRenderer trail;
     public GameObject restartPanel;
-
-    [Header("Audio")]
-    public AudioClip hitBallSFX;
-
-    [Header("Gameplay State")]
     public bool touchedGround = false;
     public bool holeInOnePossible = true;
+    public bool ballStoppedAfterFirstShot = false;
 
-    private Vector3 dragStartWorld;
-    private Vector2 pointerDownScreen;
-    private bool pointerDown;
-    private bool dragging;
-    private bool inputBlocked;
-
-    public int shotsUsed = 0;
-    private bool firstHitDone = false;
-    private bool ballStoppedAfterFirstShot = false;
-
+    public Button cancelButton;
     public float cancelTriggerPercent = 0.15f;
+    public AudioClip hitBallSFX;
 
     WindManager windManager;
+    Vector2 pointerDownScreen;
 
     void Start()
     {
         windManager = FindFirstObjectByType<WindManager>();
-
         trail.Clear();
         trail.emitting = false;
 
         shotsUsed = 0;
         holeInOnePossible = true;
-        firstHitDone = false;
-        ballStoppedAfterFirstShot = false;
-
         restartPanel.SetActive(false);
 
         if (cancelButton != null)
@@ -64,33 +57,27 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (firstHitDone)
-            return;
         if (Camera.main == null || inputBlocked)
             return;
 
-    
-        if (Input.GetMouseButtonDown(0))
+        // ---------- POINTER DOWN ----------
+        if (!hasShot && Input.GetMouseButtonDown(0))
         {
-      
             if (EventSystem.current != null &&
                 EventSystem.current.IsPointerOverGameObject())
                 return;
 
             pointerDown = true;
-            dragging = false;
-
             pointerDownScreen = Input.mousePosition;
         }
 
-    
+        // ---------- DRAG DETECTION ----------
         if (pointerDown && Input.GetMouseButton(0))
         {
-            float dragDistance =
+            float dragDist =
                 Vector2.Distance(pointerDownScreen, Input.mousePosition);
 
-     
-            if (!dragging && dragDistance >= dragThresholdPixels)
+            if (!dragging && dragDist >= dragThresholdPixels)
             {
                 StartDrag();
             }
@@ -101,21 +88,19 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        // ---------- RELEASE ----------
         if (Input.GetMouseButtonUp(0))
         {
             if (dragging)
-            {
                 FinishShot();
-            }
 
-            ResetInputState();
+            ResetInput();
         }
 
-     
-        if (!ballStoppedAfterFirstShot &&
-            firstHitDone &&
-            rb.linearVelocity.magnitude < 0.1f &&
-            shotsUsed == 1)
+        // ---------- FAIL CHECK ----------
+        if (hasShot &&
+            !ballStoppedAfterFirstShot &&
+            rb.linearVelocity.magnitude < 0.1f)
         {
             ballStoppedAfterFirstShot = true;
             StartCoroutine(HandleFirstShotFail());
@@ -126,29 +111,28 @@ public class PlayerMovement : MonoBehaviour
     {
         dragging = true;
 
-        dragStartWorld =
+        dragStartPos =
             Camera.main.ScreenToWorldPoint(pointerDownScreen);
-        dragStartWorld.z = 0;
+        dragStartPos.z = 0;
 
         lr.positionCount = 1;
-        lr.SetPosition(0, dragStartWorld);
+        lr.SetPosition(0, dragStartPos);
 
         trajectory.Hide();
     }
 
     void UpdateDrag()
     {
-        Vector3 currentWorld =
+        Vector3 dragPos =
             Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        currentWorld.z = 0;
+        dragPos.z = 0;
 
-        Vector3 finalDraggingPos =
-            2 * dragStartWorld - currentWorld;
+        Vector3 finalPos = 2 * dragStartPos - dragPos;
 
         lr.positionCount = 2;
-        lr.SetPosition(1, finalDraggingPos);
+        lr.SetPosition(1, finalPos);
 
-        Vector3 force = dragStartWorld - currentWorld;
+        Vector3 force = dragStartPos - dragPos;
         Vector3 clampedForce =
             Vector3.ClampMagnitude(force, maxDrag) * power;
 
@@ -160,8 +144,7 @@ public class PlayerMovement : MonoBehaviour
         );
 
         if (RectTransformUtility.RectangleContainsScreenPoint(
-            cancelButtonRect,
-            Input.mousePosition))
+            cancelButtonRect, Input.mousePosition))
         {
             CancelShot();
         }
@@ -171,26 +154,19 @@ public class PlayerMovement : MonoBehaviour
     {
         dragging = false;
         pointerDown = false;
-        inputBlocked = true;
 
         lr.positionCount = 0;
         trajectory.Hide();
-
         cancelButton.gameObject.SetActive(false);
 
-        Vector3 releaseWorld =
+        Vector3 releasePos =
             Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        releaseWorld.z = 0;
+        releasePos.z = 0;
 
-        Vector3 force =
-            dragStartWorld - releaseWorld;
+        Vector3 force = dragStartPos - releasePos;
 
-  
-        if (force.magnitude < 0.1f)
-        {
-            inputBlocked = false;
-            return;
-        }
+        if (force.magnitude < 0.2f)
+            return; // ✅ tap ignored
 
         Vector3 clampedForce =
             Vector3.ClampMagnitude(force, maxDrag) * power;
@@ -200,31 +176,24 @@ public class PlayerMovement : MonoBehaviour
         if (SoundManager.Instance != null)
             SoundManager.Instance.PlaySFX(hitBallSFX);
 
-        if (!firstHitDone)
-        {
-            trail.emitting = true;
-            firstHitDone = true;
-        }
-
+        trail.emitting = true;
+        hasShot = true;
+        firstHitDone = true;
         shotsUsed++;
+
         if (shotsUsed > 1)
             holeInOnePossible = false;
-
-        inputBlocked = false;
     }
 
-    void ResetInputState()
+    void ResetInput()
     {
         pointerDown = false;
         dragging = false;
 
         lr.positionCount = 0;
         trajectory.Hide();
-
         cancelButton.gameObject.SetActive(false);
     }
-
-
 
     IEnumerator HandleFirstShotFail()
     {
@@ -233,7 +202,7 @@ public class PlayerMovement : MonoBehaviour
         if (!holeInOnePossible)
             yield break;
 
-        LiveManager lm = FindAnyObjectByType<LiveManager>();
+        LiveManager lm = FindFirstObjectByType<LiveManager>();
         if (lm != null)
             lm.LoseLife();
     }
@@ -284,7 +253,6 @@ public class PlayerMovement : MonoBehaviour
 
         trail.emitting = false;
         Time.timeScale = 0f;
-
         restartPanel.SetActive(true);
     }
 
@@ -298,6 +266,7 @@ public class PlayerMovement : MonoBehaviour
 
         shotsUsed = 0;
         firstHitDone = false;
+        hasShot = false;
         holeInOnePossible = true;
         ballStoppedAfterFirstShot = false;
     }
@@ -315,6 +284,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void CancelShot()
     {
-        ResetInputState();
+        ResetInput();
     }
 }
