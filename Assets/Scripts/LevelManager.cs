@@ -135,6 +135,7 @@ public class LevelManager : MonoBehaviour
 
     public void OnLevelCompleted()
     {
+        InterstitialAdManager.Instance.TryShowAdForLevel(currentIndex + 1);
         LevelProgress.UnlockNextLevel(currentIndex);
 
         if (currentIndex == levels.Length - 1)

@@ -18,7 +18,7 @@ public class PauseManager : MonoBehaviour
         isPaused = true;
         pausePanel.SetActive(true);
         Time.timeScale = 0f;
-        FindAnyObjectByType<PlayerMovement>()?.CancelInputOnPause();
+        //FindAnyObjectByType<PlayerMovement>()?.CancelInputOnPause();
     }
 
     public void Resume()
@@ -32,7 +32,7 @@ public class PauseManager : MonoBehaviour
         PlayerMovement pm = FindAnyObjectByType<PlayerMovement>();
         if (pm != null)
         {
-            pm.OnGameResumed(); 
+            //pm.OnGameResumed(); 
         }
     }
 
