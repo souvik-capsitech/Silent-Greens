@@ -25,6 +25,7 @@ public class LevelButton : MonoBehaviour
 
     public void OnClick()
     {
-        LevelLoader.LoadGameplayLevel(levelNumber);
+        LevelLoader.Instance.LoadGameplayLevel(levelNumber);
     }
+
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "95199887597",
+    "project_id": "silent-greens",
+    "storage_bucket": "silent-greens.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95199887597:android:4dd6b7828519acc7030ce4",
+        "android_client_info": {
+          "package_name": "com.TheGameWise.SilentGreens"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYDT0HYALElr60KXlwEUklT-n-I-LgLJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

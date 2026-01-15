@@ -7117,7 +7117,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 9ad07212c51d39848a48864c043b9ffb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8479,6 +8479,10 @@ PrefabInstance:
     - target: {fileID: 4087967471564499315, guid: 274b5fcaa56df9d468b1f0a9d520a72f, type: 3}
       propertyPath: m_Name
       value: Flag_Wave
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099102655334347711, guid: 274b5fcaa56df9d468b1f0a9d520a72f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

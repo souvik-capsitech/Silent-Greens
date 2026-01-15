@@ -1,39 +1,78 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("Panels")]
     public GameObject optionsPanel;
+    public GameObject settingsPanel;
+    public GameObject languagePanel;
+
+    [Header("Buttons")]
     public GameObject continueBtn;
     public GameObject playBtn;
-    public GameObject settingsPanel;
 
+    [Header("Audio")]
     public AudioClip music;
+
+    const string LANG_SELECTED_KEY = "LANG_SELECTED";
+
     void Start()
     {
-
+      
         SoundManager.Instance.PlayMusic(music);
-        optionsPanel.SetActive(false);
-        int last = PlayerPrefs.GetInt("LastUnlockedLevel", 0);
 
-        if (last > 0)
-            continueBtn.gameObject.SetActive(true);
-        else
-            continueBtn.gameObject.SetActive(false);
+     
+        optionsPanel.SetActive(false);
+        settingsPanel.SetActive(false);
+        languagePanel.SetActive(false);
+
+    
+        int last = PlayerPrefs.GetInt("LastUnlockedLevel", 0);
+        continueBtn.SetActive(last > 0);
     }
+
 
     public void OnPlayButton()
     {
         settingsPanel.SetActive(false);
+
+        int langSelected = PlayerPrefs.GetInt(LANG_SELECTED_KEY, 0);
+
+        if (langSelected == 0)
+        {
+       
+            languagePanel.SetActive(true);
+        }
+        else
+        {
+            OpenOptionsPanel();
+        }
+    }
+
+    
+    public void OnLanguageConfirmed()
+    {
+        PlayerPrefs.SetInt(LANG_SELECTED_KEY, 1);
+        PlayerPrefs.Save();
+
+        languagePanel.SetActive(false);
+        OpenOptionsPanel();
+    }
+
+    void OpenOptionsPanel()
+    {
         optionsPanel.SetActive(true);
         playBtn.SetActive(false);
-
     }
+
+  
+
     public void OnNewGame()
     {
         PlayerPrefs.DeleteKey("LastUnlockedLevel");
-        LevelProgress.LastUnlockedLevel = 0;     
+        LevelProgress.LastUnlockedLevel = 0;
+
         TutorialManager.IsTutorialShown = false;
         PlayerPrefs.DeleteKey("WindTutorialShown");
         PlayerPrefs.Save();
@@ -46,16 +85,11 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene("LevelSelect");
     }
 
-     public void OnSettings()
+
+
+    public void OnSettings()
     {
         settingsPanel.SetActive(true);
-        
-    
         Debug.Log("Settings Opened");
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
