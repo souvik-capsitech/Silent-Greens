@@ -46,7 +46,7 @@ public class BackButtonHandler : MonoBehaviour
     public void OnConfirmExit()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("LevelSelect");
+        QuitGame();
     }
 
     public void OnCancelExit()
