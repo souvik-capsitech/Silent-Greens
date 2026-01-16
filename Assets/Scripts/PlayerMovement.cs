@@ -123,20 +123,22 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateDrag()
     {
-        Vector3 dragPos =
-            Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 dragPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         dragPos.z = 0;
 
-        Vector3 finalPos = 2 * dragStartPos - dragPos;
+    
+        Vector3 dragDir = dragPos - dragStartPos;
+        Vector3 clampedForce = Vector3.ClampMagnitude(dragDir, maxDrag) * power;
 
+      
+        Vector3 finalPos = dragStartPos + clampedForce;
         lr.positionCount = 2;
+        lr.SetPosition(0, dragStartPos);
         lr.SetPosition(1, finalPos);
 
-        Vector3 force = dragStartPos - dragPos;
-        Vector3 clampedForce =
-            Vector3.ClampMagnitude(force, maxDrag) * power;
-
+     
         trajectory.Show(transform.position, clampedForce);
+
 
         float screenY = Input.mousePosition.y / Screen.height;
         cancelButton.gameObject.SetActive(
@@ -159,18 +161,14 @@ public class PlayerMovement : MonoBehaviour
         trajectory.Hide();
         cancelButton.gameObject.SetActive(false);
 
-        Vector3 releasePos =
-            Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 releasePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         releasePos.z = 0;
 
-        Vector3 force = dragStartPos - releasePos;
-
+        Vector3 force = releasePos - dragStartPos;
         if (force.magnitude < 0.2f)
-            return; // ✅ tap ignored
+            return; 
 
-        Vector3 clampedForce =
-            Vector3.ClampMagnitude(force, maxDrag) * power;
-
+        Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
         rb.AddForce(clampedForce, ForceMode2D.Impulse);
 
         if (SoundManager.Instance != null)

@@ -1,0 +1,24 @@
+# pack-refs with: peeled fully-peeled sorted 
+5d4a0a0f0b7d3c868ec88b51640ba42c2dbdd7bd refs/heads/Firebase-Meta-integration
+11dfa275a29567cb9cd3423f83d392ddb894033b refs/heads/Rishi-Analytics-Integrations
+43dd1f93b4d63a416611deaf670171f8229ed7b4 refs/heads/dev-Souvik
+b495c4e86d590486073403318943384c33d37b8a refs/heads/main
+75e4267bced502a5c56e048337b452e4fd51de18 refs/pull/1/head
+22320518fb6eb40a7c8e67bc58ecafd23891a3ff refs/pull/10/head
+be327092994f61a675c5f42e61e3e400e064902a refs/pull/11/head
+5c0e6bf16b58b85f745b1d8013df55721341e6e9 refs/pull/12/head
+aa3685913b5fe9a45387b3e89424b191c8a690ff refs/pull/13/head
+3b4096ec9c7cd3775e8922d4fa1d830a0e829aa1 refs/pull/14/head
+a1338b7f2204e72b244846c5f0da358aa96b9633 refs/pull/15/head
+43dd1f93b4d63a416611deaf670171f8229ed7b4 refs/pull/16/head
+5d4a0a0f0b7d3c868ec88b51640ba42c2dbdd7bd refs/pull/17/head
+43dd1f93b4d63a416611deaf670171f8229ed7b4 refs/pull/18/head
+c1d43e7cf2c6faa0d313e8c6e1105ad0543c9d30 refs/pull/2/head
+c1d43e7cf2c6faa0d313e8c6e1105ad0543c9d30 refs/pull/3/head
+2e99eb74960bb3a95c9946cda1c00e18992259df refs/pull/4/head
+983ff04611f29c739cdaad1afa7a6e0ed36e193d refs/pull/5/head
+326cc53c5393a7764ec5842689ce89f40fdf460a refs/pull/6/head
+458076af906b1f517ac585c50e551dbfe0958a41 refs/pull/7/head
+f930f9d4bd8a8ed6eaa2ca6738195b86f71b8760 refs/pull/8/head
+60e17becb22f7358b43c58ab4d32ce261eca4723 refs/pull/9/head
+43cbb2c9227dc99592822acf2be5d57b715fdbf1 refs/tags/v0.1.0-alpha

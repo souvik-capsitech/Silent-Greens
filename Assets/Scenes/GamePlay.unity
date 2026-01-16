@@ -9628,7 +9628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1401928512
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10194,7 +10194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1594504814
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10301,7 +10301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1602366138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10866,7 +10866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1658318390
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11496,7 +11496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dotPrefab: {fileID: 865448103459537049, guid: 9b8f74f99416abf4db7f4e9d4eb5b253, type: 3}
-  dotCount: 20
+  dotCount: 30
   ball: {fileID: 626650539}
   groundLayer:
     serializedVersion: 2
@@ -11554,8 +11554,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -705.47, y: -370.02}
-  m_SizeDelta: {x: 509.12, y: 791.97}
+  m_AnchoredPosition: {x: -521.65, y: -453.95}
+  m_SizeDelta: {x: 509.12, y: 208.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1918455840
 MonoBehaviour:
@@ -11766,7 +11766,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1968223186
 RectTransform:
   m_ObjectHideFlags: 0
