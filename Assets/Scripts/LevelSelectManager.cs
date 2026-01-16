@@ -20,7 +20,7 @@ public class LevelSelectManager : MonoBehaviour
     public RectTransform[] levelButtons;
 
     [Header("Settings")]
-    public int totalLevels = 15;
+    public int totalLevels = 20;
     private int lastUnlockedLevel;
     private float swipeAmount = 0.25f;
 

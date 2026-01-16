@@ -142,19 +142,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -162,10 +149,10 @@ TextureImporter:
       name: Heading_0
       rect:
         serializedVersion: 2
-        x: 61
-        y: 47
-        width: 134
-        height: 271
+        x: 5
+        y: 11
+        width: 88
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +171,10 @@ TextureImporter:
       name: Heading_1
       rect:
         serializedVersion: 2
-        x: 219
-        y: 47
-        width: 55
-        height: 271
+        x: 108
+        y: 11
+        width: 37
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +193,10 @@ TextureImporter:
       name: Heading_2
       rect:
         serializedVersion: 2
-        x: 308
-        y: 47
-        width: 136
-        height: 271
+        x: 166
+        y: 11
+        width: 90
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +215,10 @@ TextureImporter:
       name: Heading_3
       rect:
         serializedVersion: 2
-        x: 467
-        y: 47
-        width: 142
-        height: 271
+        x: 270
+        y: 11
+        width: 94
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,10 +237,10 @@ TextureImporter:
       name: Heading_4
       rect:
         serializedVersion: 2
-        x: 636
-        y: 47
-        width: 158
-        height: 271
+        x: 380
+        y: 11
+        width: 105
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,10 +259,10 @@ TextureImporter:
       name: Heading_5
       rect:
         serializedVersion: 2
-        x: 771
-        y: 45
-        width: 262
-        height: 375
+        x: 444
+        y: 11
+        width: 245
+        height: 313
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +281,10 @@ TextureImporter:
       name: Heading_6
       rect:
         serializedVersion: 2
-        x: 1129
-        y: 47
-        width: 169
-        height: 271
+        x: 742
+        y: 11
+        width: 112
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -316,10 +303,10 @@ TextureImporter:
       name: Heading_7
       rect:
         serializedVersion: 2
-        x: 1326
-        y: 47
-        width: 163
-        height: 271
+        x: 871
+        y: 11
+        width: 108
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -338,10 +325,10 @@ TextureImporter:
       name: Heading_8
       rect:
         serializedVersion: 2
-        x: 1514
-        y: 47
-        width: 142
-        height: 271
+        x: 994
+        y: 11
+        width: 94
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,10 +347,10 @@ TextureImporter:
       name: Heading_9
       rect:
         serializedVersion: 2
-        x: 1683
-        y: 47
-        width: 142
-        height: 271
+        x: 1104
+        y: 11
+        width: 94
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -382,10 +369,10 @@ TextureImporter:
       name: Heading_10
       rect:
         serializedVersion: 2
-        x: 1852
-        y: 47
-        width: 158
-        height: 271
+        x: 1215
+        y: 11
+        width: 104
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -404,10 +391,10 @@ TextureImporter:
       name: Heading_11
       rect:
         serializedVersion: 2
-        x: 2036
-        y: 47
-        width: 133
-        height: 271
+        x: 1335
+        y: 11
+        width: 88
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
