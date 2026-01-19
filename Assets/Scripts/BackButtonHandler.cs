@@ -1,33 +1,34 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 public class BackButtonHandler : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
     public GameObject cancelPopUp;
+    public GameObject pauseButton;
+
     void Start()
     {
         cancelPopUp.SetActive(false);
+
+        if (pauseButton != null)
+            pauseButton.SetActive(true);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             HandleBackButton();
         }
-        
     }
+
     void HandleBackButton()
     {
         string sceneName = SceneManager.GetActiveScene().name;
 
         if (sceneName == "GamePlay")
         {
-          
             if (!cancelPopUp.activeSelf)
                 ShowCancelPopup();
         }
@@ -40,6 +41,10 @@ public class BackButtonHandler : MonoBehaviour
     void ShowCancelPopup()
     {
         cancelPopUp.SetActive(true);
+
+        if (pauseButton != null)
+            pauseButton.SetActive(false);
+
         Time.timeScale = 0f;
     }
 
@@ -52,6 +57,10 @@ public class BackButtonHandler : MonoBehaviour
     public void OnCancelExit()
     {
         cancelPopUp.SetActive(false);
+
+        if (pauseButton != null)
+            pauseButton.SetActive(true);
+
         Time.timeScale = 1f;
     }
 
@@ -62,8 +71,7 @@ public class BackButtonHandler : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-           Application.Quit();
+        Application.Quit();
 #endif
     }
-
 }

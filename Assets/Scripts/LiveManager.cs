@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Solo.MOST_IN_ONE;
 public class LiveManager : MonoBehaviour
 {
 
@@ -32,10 +33,13 @@ public class LiveManager : MonoBehaviour
 
     
 
-        lifeCooldown = 0.75f; // block repeated hits
+        lifeCooldown = 0.75f; 
 
         currentLives--;
-
+        MOST_HapticFeedback.GenerateWithCooldown(
+    MOST_HapticFeedback.HapticTypes.Failure,
+    0.3f
+);
         int index = Mathf.Clamp(currentLives, 0, lifeIcons.Length - 1);
 
         if (currentLives <= 0)
@@ -58,6 +62,10 @@ public class LiveManager : MonoBehaviour
 
     IEnumerator AnimateLifeLoss(int idx)
     {
+
+        MOST_HapticFeedback.Generate(
+        MOST_HapticFeedback.HapticTypes.LightImpact
+    );
         RectTransform icon = lifeIcons[idx].rectTransform;
         Vector3 startPos = icon.localPosition;
         float duration = 0.2f;

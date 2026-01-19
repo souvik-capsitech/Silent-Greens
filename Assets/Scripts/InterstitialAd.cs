@@ -98,7 +98,7 @@ public class InterstitialAdManager : MonoBehaviour
 
     public void TryShowAdForLevel(int levelNumber)
     {
-        if (levelNumber >= 10 && (levelNumber - 10) % 5 == 0)
+        if (levelNumber >= 10 && (levelNumber - 10) % 4 == 0)
         {
             ShowInterstitialIfReady();
         }

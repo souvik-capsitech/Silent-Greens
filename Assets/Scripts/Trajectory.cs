@@ -34,26 +34,24 @@ public class Trajectory : MonoBehaviour
         for (int i = 0; i < dotCount; i++)
         {
             float t = i * dotSpacing;
-
-            
             Vector2 pos = startPos + velocity * t + 0.5f * gravity * (t * t);
 
-          
-            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.down, 0.1f, groundLayer);
+            Vector2 dir = velocity.normalized;
+            RaycastHit2D hit = Physics2D.Raycast(pos, dir, 0.1f, groundLayer);
+
             if (hit.collider != null)
             {
-                dots[i].SetActive(false);
+                for (int j = i; j < dotCount; j++)
+                    dots[j].SetActive(false);
+
                 break;
             }
 
             dots[i].transform.position = pos;
             dots[i].SetActive(true);
 
-            float speed = velocity.magnitude;
-            float scale = Mathf.Lerp(0.3f, 0.8f, speed / 8f); 
             dots[i].transform.localScale = Vector3.one * 0.1f;
 
-        
             var sr = dots[i].GetComponent<SpriteRenderer>();
             if (sr != null)
             {
@@ -62,6 +60,7 @@ public class Trajectory : MonoBehaviour
             }
         }
     }
+
 
     public void Hide()
     {

@@ -1258,6 +1258,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409141167}
   m_CullTransparentMesh: 1
+--- !u!1 &445090257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 445090259}
+  - component: {fileID: 445090258}
+  m_Layer: 0
+  m_Name: BannerAd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &445090258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445090257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6358adf9039e12648a97aaeedb3c39f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BannerAdManager
+  bannerAdUnitId: ca-app-pub-8530302013109448/3496815230
+--- !u!4 &445090259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445090257}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -195.21216, y: 815.2286, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &516623389
 GameObject:
   m_ObjectHideFlags: 0
@@ -3436,7 +3481,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000026703, y: -335.17}
+  m_AnchoredPosition: {x: -0.38187, y: -228}
   m_SizeDelta: {x: 245.2348, y: 126.5299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1318860547
@@ -3549,7 +3594,7 @@ MonoBehaviour:
   spriteA: {fileID: 21300000, guid: 96b7bce63bc8ac34f84c7e9946f13e1e, type: 3}
   spriteB: {fileID: 21300000, guid: 915ae741217b38a42b97038a07fbf8ab, type: 3}
   bounceSize: 1.12
-  bounceTime: 0.25
+  bounceTime: 0.5
 --- !u!1 &1362059342
 GameObject:
   m_ObjectHideFlags: 0
@@ -5227,3 +5272,4 @@ SceneRoots:
   - {fileID: 1362059344}
   - {fileID: 572340776}
   - {fileID: 1465853034}
+  - {fileID: 445090259}

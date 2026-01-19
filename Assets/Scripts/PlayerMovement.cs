@@ -7,7 +7,14 @@ public class PlayerMovement : MonoBehaviour
 {
     public float maxDrag = 4f;
     public float power = 8f;
-    public float dragThresholdPixels = 25f;   // ✅ NEW (tap protection)
+    public float dragThresholdPixels = 25f;
+
+
+    [Header("Drag Smoothing")]
+    public float dragSmoothSpeed = 20f;
+
+    private Vector3 smoothDragPos;
+
 
     public Rigidbody2D rb;
     public LineRenderer lr;
@@ -53,6 +60,9 @@ public class PlayerMovement : MonoBehaviour
             cancelButton.onClick.AddListener(CancelShot);
             cancelButton.gameObject.SetActive(false);
         }
+
+        smoothDragPos = dragStartPos;
+
     }
 
     void Update()
@@ -60,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
         if (Camera.main == null || inputBlocked)
             return;
 
-        // ---------- POINTER DOWN ----------
         if (!hasShot && Input.GetMouseButtonDown(0))
         {
             if (EventSystem.current != null &&
@@ -71,7 +80,6 @@ public class PlayerMovement : MonoBehaviour
             pointerDownScreen = Input.mousePosition;
         }
 
-        // ---------- DRAG DETECTION ----------
         if (pointerDown && Input.GetMouseButton(0))
         {
             float dragDist =
@@ -88,7 +96,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // ---------- RELEASE ----------
         if (Input.GetMouseButtonUp(0))
         {
             if (dragging)
@@ -97,7 +104,6 @@ public class PlayerMovement : MonoBehaviour
             ResetInput();
         }
 
-        // ---------- FAIL CHECK ----------
         if (hasShot &&
             !ballStoppedAfterFirstShot &&
             rb.linearVelocity.magnitude < 0.1f)
@@ -121,24 +127,34 @@ public class PlayerMovement : MonoBehaviour
         trajectory.Hide();
     }
 
+
+
     void UpdateDrag()
     {
-        Vector3 dragPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        dragPos.z = 0;
+        Vector3 targetDragPos =
+            Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        targetDragPos.z = 0;
 
     
-        Vector3 dragDir = dragPos - dragStartPos;
-        Vector3 clampedForce = Vector3.ClampMagnitude(dragDir, maxDrag) * power;
+        if (Vector3.Distance(smoothDragPos, targetDragPos) < 0.01f)
+            return;
 
-      
+        smoothDragPos = Vector3.Lerp(
+            smoothDragPos,
+            targetDragPos,
+            Time.deltaTime * dragSmoothSpeed
+        );
+
+        Vector3 dragDir = smoothDragPos - dragStartPos;
+        Vector3 clampedForce =
+            Vector3.ClampMagnitude(dragDir, maxDrag) * power;
+
         Vector3 finalPos = dragStartPos + clampedForce;
         lr.positionCount = 2;
         lr.SetPosition(0, dragStartPos);
         lr.SetPosition(1, finalPos);
 
-     
         trajectory.Show(transform.position, clampedForce);
-
 
         float screenY = Input.mousePosition.y / Screen.height;
         cancelButton.gameObject.SetActive(
