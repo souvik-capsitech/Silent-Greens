@@ -14,25 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Facebook.Unity.Settings.dll::Facebook.Unity.Settings.FacebookSettings
   selectedAppIndex: 0
   clientTokens:
-<<<<<<< HEAD
-  - 0af1a0f2c9cb3279121aa12c870bba34
+  - 
   appIds:
-  - 1267092415467816
+  - 0
   appLabels:
-  - Silent Greens App
-=======
-  - '8abb98a2d44508fe845c017270a39799  '
-  appIds:
-  - 1453542253141815
-  appLabels:
-  - Silent Greens
->>>>>>> ec985a5e9539e72500a50e87ec5f5b0893d8d671
+  - App Name
   cookie: 1
   logging: 1
   status: 1
   xfbml: 0
   frictionlessRequests: 1
-  androidKeystorePath: C:/Users/CT_USER/Downloads/KeyStore (5)/KeyStore/TheGameWise.keystore
+  androidKeystorePath: 
   iosURLSuffix: 
   appLinkSchemes:
   - list: []

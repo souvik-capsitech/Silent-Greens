@@ -145,7 +145,8 @@ public class PlayerMovement : MonoBehaviour
             Time.deltaTime * dragSmoothSpeed
         );
 
-        Vector3 dragDir = smoothDragPos - dragStartPos;
+        Vector3 dragDir = dragStartPos - smoothDragPos;
+
         Vector3 clampedForce =
             Vector3.ClampMagnitude(dragDir, maxDrag) * power;
 
@@ -180,7 +181,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 releasePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         releasePos.z = 0;
 
-        Vector3 force = releasePos - dragStartPos;
+        Vector3 force = dragStartPos - releasePos;
+
         if (force.magnitude < 0.2f)
             return; 
 
