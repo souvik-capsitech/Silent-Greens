@@ -10,7 +10,11 @@
   <projectSetting name="GooglePlayServices.AutoResolverEnabled" value="True" />
   <projectSetting name="GooglePlayServices.ExplodeAars" value="True" />
   <projectSetting name="GooglePlayServices.LocalMavenRepoDir" value="Assets/GeneratedLocalRepo" />
+<<<<<<< HEAD
   <projectSetting name="GooglePlayServices.PatchAndroidManifest" value="False" />
+=======
+  <projectSetting name="GooglePlayServices.PatchAndroidManifest" value="True" />
+>>>>>>> ec985a5e9539e72500a50e87ec5f5b0893d8d671
   <projectSetting name="GooglePlayServices.PatchMainTemplateGradle" value="True" />
   <projectSetting name="GooglePlayServices.PatchPropertiesTemplateGradle" value="True" />
   <projectSetting name="GooglePlayServices.PatchSettingsTemplateGradle" value="True" />
@@ -20,5 +24,9 @@
   <projectSetting name="GooglePlayServices.UseGradleDaemon" value="False" />
   <projectSetting name="GooglePlayServices.UseJetifier" value="True" />
   <projectSetting name="GooglePlayServices.UserRejectedGradleUpgrade" value="False" />
+<<<<<<< HEAD
   <projectSetting name="GooglePlayServices.VerboseLogging" value="True" />
+=======
+  <projectSetting name="GooglePlayServices.VerboseLogging" value="False" />
+>>>>>>> ec985a5e9539e72500a50e87ec5f5b0893d8d671
 </projectSettings>
