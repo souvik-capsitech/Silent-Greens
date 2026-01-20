@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MetaAnalytics : MonoBehaviour
 {
-    void Awake()
+    void Start()
     {
         if (!FB.IsInitialized)
         {

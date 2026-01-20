@@ -1,0 +1,23 @@
+# ninja log v5
+4	725	7905898409560002	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	816d9e4165d33eb6
+29	105	7905898403410552	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	e65acc2ff624b1dc
+17	520	7905898407521614	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	5b3f4fd028ca0bf1
+106	223	7905898404495263	D:/Exports/Silent-Greens/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2b33z101/obj/armeabi-v7a/libswappywrapper.so	8a626bfb685aef3b
+11	524	7905898407536669	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	a8c59b3285bb2886
+25	605	7905898408380278	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	55ffd7574723f3d
+0	533	7905898407683745	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	18cf69043876bef5
+8	569	7905898408025390	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	f0c8b147d652f568
+21	540	7905898407747218	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	7b43bb97dc84be36
+14	669	7905898409023994	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	282ebacbe1cb678b
+725	776	7905898410110981	D:/Exports/Silent-Greens/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2b33z101/obj/armeabi-v7a/libgame.so	20096d4a5b061174
+35	116	7905969350482313	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	e65acc2ff624b1dc
+116	204	7905969351275178	D:/Exports/Silent-Greens/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2b33z101/obj/armeabi-v7a/libswappywrapper.so	8a626bfb685aef3b
+8	651	7905969355721769	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	a8c59b3285bb2886
+23	658	7905969355847368	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	5b3f4fd028ca0bf1
+15	673	7905969355988020	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	18cf69043876bef5
+19	683	7905969356103315	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	7b43bb97dc84be36
+3	704	7905969356298943	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	f0c8b147d652f568
+31	795	7905969357091713	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	55ffd7574723f3d
+27	869	7905969357968861	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	282ebacbe1cb678b
+11	953	7905969358767789	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	816d9e4165d33eb6
+953	1031	7905969359587517	D:/Exports/Silent-Greens/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2b33z101/obj/armeabi-v7a/libgame.so	20096d4a5b061174

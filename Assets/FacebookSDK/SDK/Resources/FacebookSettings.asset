@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Facebook.Unity.Settings.dll::Facebook.Unity.Settings.FacebookSettings
   selectedAppIndex: 0
   clientTokens:
-  - 
+  - 0af1a0f2c9cb3279121aa12c870bba34
   appIds:
-  - 0
+  - 1267092415467816
   appLabels:
-  - App Name
+  - Silent Greens App
   cookie: 1
   logging: 1
   status: 1
